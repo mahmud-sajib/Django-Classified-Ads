@@ -1,0 +1,500 @@
+/* ==========================================================================
+3. Hero Area
+========================================================================== */
+#hero-area{
+	background: url(../img/hero-area.jpg) no-repeat;
+	background-size: cover;
+	color: #fff;
+	overflow: hidden;
+	position: relative;
+	.overlay{
+	    content: '';
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    background: rgba(54, 59, 77, 0.88);
+	}
+	.contents{
+		padding: 160px 0 210px;
+		.head-title{	
+			color: #fff;
+		    font-size: 50px;
+		    font-weight: 700;
+		    text-transform: uppercase;
+		    margin-bottom: 15px;
+		}
+		span.year{
+	    	color: $preset;
+	    }
+		p{
+			font-size: 16px;
+			color: #fff;
+			font-weight: 400;
+			line-height: 26px;
+		}
+	}
+}
+.search-bar{
+	margin-top: 40px;
+	.search-form{
+		width: 100%;
+		float: left;
+	}
+	.search-inner{
+		background: #fff;
+		overflow: hidden;
+		border-radius: 50px;
+	}
+	.search-inner{
+	    margin: 0;
+	    border: 0;
+	    padding: 10px;
+	    width: 100%;
+	    float: left;
+	    position: relative;
+	    background: rgba(128,128,128,.5);
+	}
+	.form-group:first-child {
+	    border: 0;
+	}
+	.form-group {
+        margin: 5px;
+	    float: left;
+	    width: 27.33%;
+	    padding: 0 0 0 52px;
+	    background: #fff;
+	    border-radius: 50px;
+	    .form-control{
+	    	position: relative;
+	    	z-index: 1;
+			border: 0;
+		    height: 50px;
+		    border-radius: 4px;
+		    font-size: 15px;
+		    line-height: 30px;
+		    padding: 15px 15px 15px 0;
+		}
+		.form-control, .select select {
+		    border: 0;
+		    height: 50px;
+		    border-radius: 50px;
+		    font-size: 15px;
+		    line-height: 30px;
+		    padding: 10px 15px 15px 0;
+		    background: #ffffff;
+		}
+		.form-control, .select select:focus{
+			outline: none;
+			box-shadow: none;
+		}
+	}
+	.select {
+		color:#666;
+		float:left;
+		width: 100%;
+		position: relative;
+		text-transform:uppercase;
+	}
+	.select:after {
+		top: 7px;
+		right: 15px;
+		z-index: 2;
+		color: #666;
+		display: block;
+		content: '\e93a';
+		position: absolute;
+		text-align: center;
+		font-size: inherit;
+		line-height: 40px;
+		font-family: 'LineIcons';
+	}
+	.select select {
+		z-index: 1;
+		width: 100%;
+		position: relative;
+		appearance: none;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+	}
+	.select select option { color:#666; }
+	.inputwithicon {
+	    position: relative;
+	}
+	.inputwithicon i {
+		top: 0;
+	    left: 0;
+	    z-index: 2;
+	    color: $preset;
+	    position: absolute;
+	    left: 20px;
+	    font-size: 20px;
+	    line-height: 50px;
+	}
+	.btn-common {
+	    top: 15px;
+	    right: 15px;
+	    padding: 0;
+	    z-index: 2;
+	    width: 157px;
+	    border-radius: 50px;
+	    border: none;
+	    cursor: pointer;
+	    line-height: 50px;
+	    text-align: center;
+	    position: absolute;
+	    font-weight: 700;
+	    letter-spacing: 0.5px;
+	    text-transform: uppercase;
+	    transition: all 0.4s ease-in-out;
+	    -moz-transition: all 0.4s ease-in-out;
+	    -webkit-transition: all 0.4s ease-in-out;
+	    -o-transition: all 0.4s ease-in-out;
+	    i{
+	    	font-size: 20px;
+	    	vertical-align: middle;
+	    }
+	}
+}
+.search-button{
+	background: #484848;
+	padding-bottom: 40px;
+}
+
+// Search-two-inner 2
+#hero-area-two{
+	background: url(../img/hero-area.jpg) no-repeat;
+	background-size: cover;
+	color: #fff;
+	overflow: hidden;
+	position: relative;
+	.overlay{
+	    content: '';
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    background: rgba(54, 59, 77, 0.88);
+	}
+	.contents{
+		padding: 160px 0 170px;
+		.head-title{	
+			color: #fff;
+		    font-size: 42px;
+		    font-weight: 500;
+		    line-height: 52px;
+		    margin-bottom: 20px;
+		}
+		p{
+			font-size: 15px;
+			color: #fff;
+			font-weight: 400;
+			line-height: 26px;
+			margin: 0px 0px 50px 0px;
+		}
+	}
+}
+.search-two{
+	margin-bottom: 30px;
+	.search-inner{
+		padding: 5px;
+	    border-radius: 3px;
+	    -webkit-border-radius: 3px;
+	    -moz-border-radius: 3px;
+	    -ms-border-radius: 3px;
+	    -o-border-radius: 3px;
+	    background: #fff;
+	    > .row{
+	    	margin: 0;
+	    }
+	    > .row > div{
+	    	padding: 0;
+	    }
+	    .form-group{
+	    	position: relative;
+	    	margin-bottom: 0;
+	    }
+	    .search-query input[type="text"].form-control {
+		    border-right: 1px solid #d7d7d7;
+		}
+	    input[type="text"].form-control{
+			border: 0;
+		    height: unset;
+		    padding: 3px 20px;
+		    border-radius: 0;
+		    margin: 10px 0;
+	    }
+	    .search-location{
+	    	i{
+	    		position: absolute;
+			    right: 12px;
+			    top: 9px;
+			    color: #999;
+	    	}
+	    }
+	   	button{
+	    	border-radius: 3px;
+		    box-shadow: none;
+		    width: 100%;
+		    height: 100%;
+		    line-height: 100%;
+		    font-size: 16px;
+	    }
+	    .search-suggestion{
+	    	display: none;
+		    text-align: inherit;
+		    position: absolute;
+		    left: -5px;
+		    top: calc(100% + 13px);
+		    background: #fff;
+		    width: 100%;
+		    max-height: 200px;
+		    overflow-y: scroll;
+		    z-index: 999;
+		    .search-suggestion-items{
+		    	text-align: left;
+		    	ul{
+		    		margin: 0;
+		    		bottom: 0;
+		    		li{
+		    			display: block;
+					    margin: 0 0 5px;
+					    padding: 0 20px;
+					    a{
+					    	color: #333;
+					    	padding: 5px 0;
+						    display: inline-block;
+						    border: 0;
+						    &:hover{
+						    	color: $preset;
+						    }
+						    i{
+						    	color: #ffffff;
+							    width: 40px;
+							    height: 40px;
+							    border-radius: 50%;
+							    line-height: 40px;
+							    text-align: center;
+							    margin-right: 10px;
+							    vertical-align: middle;
+							    background: $preset;
+							    display: inline-block;
+							    font-size: 18px;
+						    }
+					    }
+		    		}
+		    	}
+		    }
+	    }
+	    .form-group.search-query.query-focus .search-suggestion{
+		    display: block;
+		    animation: fadeIn 0.4s;
+		    -webkit-animation: fadeIn 0.4s;
+		    -moz-animation: fadeIn 0.4s;
+		    -o-animation: fadeIn 0.4s;
+		    -ms-animation: fadeIn 0.4s;
+		}
+	}
+}
+.adverts-search-suggestion{
+	text-align: center;
+	.search-suggestion-title{
+		font-size: 16px;
+    	margin: 0 10px;
+	}
+	.adverts-search-suggestion-items{
+		display: inline-block;
+		ul{
+			margin: 0;
+    		padding: 0;
+    		li{
+    			list-style: none;
+			    display: inline-block;
+			    margin: 0 5px;
+			    a{
+				    border: 1px solid #999;
+				    border-radius: 50px;
+				    padding: 5px 10px;
+				    font-size: 13px;
+				    color: rgba(255, 255, 255, 0.80);
+					border-color: rgba(255, 255, 255, 0.80);
+			    }
+			    a:hover, 
+				a:focus{
+					color: #ffffff;
+			    	border-color: #ffffff;
+				}
+    		}
+		}
+	}
+}
+// Heroa area 2
+.contents-hero-two{
+	padding: 180px 0 120px;
+}
+.contents-text{
+	.dsc{
+		font-size: 18px;
+		color: #fff;
+		font-weight: 100;
+		margin-bottom: 20px;
+	}
+	.heading-title{
+		color: #fff;
+		font-size: 28px;
+		font-weight: 500;
+		margin-bottom: 30px;
+	}
+}
+.category-icon-item{
+	.icon-box{
+		text-align: center;
+	    padding: 15px 10px;
+	    background: rgba(128,128,128,.5);
+	    border-radius: 4px;
+	    -webkit-transition: all 0.3s ease-out;
+	    -moz-transition: all 0.3s ease-out;
+	    -o-transition: all 0.3s ease-out;
+	    transition: all 0.3s ease-out;
+    .icon{
+    	margin-bottom: 10px;
+    	i{
+    		color: #fff;
+    		font-size: 42px;
+		    line-height: normal;
+		    width: auto;
+		    height: auto;
+    	}
+    }
+    h4{
+	    font-size: 14px;
+	    color: #ffffff;
+	    line-height: 15px;
+	    font-weight: 500;
+	    overflow: hidden;
+	    margin-bottom: 0;
+	    -webkit-transition: all 0.3s ease-out;
+	    -moz-transition: all 0.3s ease-out;
+	    -o-transition: all 0.3s ease-out;
+	    transition: all 0.3s ease-out;
+    }
+	}
+	.icon-box:hover{
+		background: $preset;
+	}
+}
+
+// Search item
+.classiser-search-bar{
+	margin: 0;
+	.search-inner{
+		border-radius: 3px;
+		margin: 0;
+		border: 0;
+		padding: 20px;
+		position: relative;
+		background: rgba(128,128,128,.5);
+		h4{
+			color: #fff;
+	    margin-top: 0;
+	    font-size: 22px;
+	    margin-bottom: 20px;
+		}
+	}
+	.form-group{
+    width: 100%;
+    float: left;
+    padding: 0 0 0 52px;
+    background: #fff;
+    border-radius: 50px;
+    margin-bottom: 20px;
+	}
+	.inputwithicon{
+		position: relative;
+		i{
+			top: 0;
+	    left: 20px;
+	    z-index: 2;
+	    position: absolute;
+	    font-size: 20px;
+	    line-height: 50px;
+		}
+	}
+	.btn-common{
+    padding: 0;
+    z-index: 2;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    line-height: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+	}
+}
+.classiser-search-bar .inputwithicon i {
+    top: 0;
+    left: 0;
+    z-index: 2;
+    color: #00BCD4;
+    position: absolute;
+    left: 20px;
+    font-size: 20px;
+    line-height: 50px;
+}
+.classiser-search-bar .select{
+    color: #666;
+    float: left;
+    width: 100%;
+    position: relative;
+    text-transform: uppercase;
+    select{
+    	border: 0;
+	    height: 50px;
+	    border-radius: 50px;
+	    font-size: 15px;
+	    line-height: 30px;
+	    padding: 10px 15px 15px 0;
+	    background: #ffffff;
+	    z-index: 1;
+	    width: 100%;
+	    position: relative;
+	    appearance: none;
+	    -moz-appearance: none;
+	    -webkit-appearance: none;
+    }
+}
+.classiser-search-bar .form-group .form-control, 
+.classiser-search-bar .form-group .select select:focus {
+    outline: none;
+    box-shadow: none;
+}
+.classiser-search-bar .select:after {
+    top: 7px;
+    right: 15px;
+    z-index: 2;
+    color: #666;
+    display: block;
+    content: '\e93a';
+    position: absolute;
+    text-align: center;
+    font-size: inherit;
+    line-height: 40px;
+    font-family: 'LineIcons';
+}
+.classiser-search-bar .form-group .form-control, 
+.classiser-search-bar .form-group select{
+	 border: 0;
+    height: 50px;
+    width: 100%;
+    border-radius: 50px;
+    font-size: 15px;
+    line-height: 30px;
+    padding: 10px 15px 15px 5px;
+    background: #ffffff;
+}

@@ -1,0 +1,109 @@
+// About Us
+#about{
+	.about-wrapper{
+		padding: 40px 0;
+	}
+	.intro-title{
+		font-size: 24px;
+		line-height: 36px;
+		margin-bottom: 20px;
+	}
+	.intro-desc{
+		margin-bottom: 15px;
+	}
+}
+// Spacial Offer
+.special-product{
+	position: relative;
+    margin: 0;
+    overflow: hidden;
+    &:before{
+    	content: '';
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    background-color: rgba(0, 0, 0, 0.7);
+	    z-index: 1;
+	    -webkit-transition: all .4s ease-in-out;
+	    -moz-transition: all .4s ease-in-out;
+	    transition: all .4s ease-in-out;
+    }
+    .product-text{
+    	position: absolute;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    top: 0;
+	    /* background: #555; */
+	    /* -webkit-transition: all .3s ease-in-out; */
+	    /* transition: all .3s ease-in-out; */
+	    /* -webkit-transform: translate3d(0, 100%, 0); */
+	    /* transform: translate3d(0, 100%, 0); */
+	    padding: 30px;
+	    z-index: 2;
+	    h3{
+	    	font-size: 30px;
+	    	color: #fff;
+	    }
+	    .offer-details{
+	    	margin-top: 30px;
+	    	color: #fff;
+	    	h4{
+	    		font-size: 18px;
+	    	}
+	    	p{
+	    		font-size: 16px;
+	    	}
+	    }
+	    .price{
+    		font-weight: 700;
+		    color: #fff;
+		    font-size: 26px;
+		    color: #03cd67;
+		    margin-bottom: 15px;
+    	}
+	    .icon-footer{
+	    	position: absolute;
+		    right: 30px;
+		    bottom: 20px;
+		    a{
+		    	font-size: 30px;
+	    		color: #fff;
+	    		&:hover{
+	    			color: $preset;
+	    		}
+		    }
+	    }
+	    .text{
+	    	font-size: 15px;
+		    color: #fff;
+		    font-weight: 500;
+	    }
+    }
+}
+
+// Call to Action
+.cta{
+	background: #fafafa;
+}
+.single-cta{
+	background: #fff;
+    text-align: center;
+    padding: 30px;
+	.cta-icon{
+		padding-bottom: 15px;
+		i{
+			font-size: 40px;
+    		color: $preset;
+		}
+	}
+	h4{
+		font-size: 18px;
+    	margin-bottom: 10px;
+	}
+}
+.mb-30{
+	margin-bottom: 30px;
+}

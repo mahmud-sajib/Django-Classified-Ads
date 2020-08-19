@@ -1,0 +1,58 @@
+// Faq page Start
+.head-faq{
+  margin-bottom: 20px;
+}
+.panel-group .panel{
+  margin-bottom: 24px;
+}
+.panel-default{
+  border-radius: 0px;
+  border: none;
+  .panel-heading{
+    padding: 0px 30px;
+    outline: none;
+    border-radius: 4px;
+    background: #ffffff;
+    border: 1px solid #f1f1f1;
+    width: 100%;
+    box-shadow: 0px 2px 18px 0px rgba(198,198,198,0.3);
+    .panel-title{
+      margin-top: 0px;
+      margin-bottom: 0px;
+      font-weight: 500;
+      font-size: 14px;
+      color: inherit;
+    }
+    a{
+      font-size: 14px;
+      font-weight: 400;
+      padding: 15px 35px 15px 30px;
+      display: inline-block;
+      width: 100%;
+      color: #484848;
+      position: relative;
+    }
+    
+    a:after{
+      font-family: "LineIcons";
+      content: "\e9d6";
+      position: absolute;
+      left: 0px;
+      color: $preset;
+      top: 50%;
+      line-height: 1;
+      padding: 0px 5px;
+      margin-top: -7px;
+    }
+    .collapsed:after{
+      content: "\e9bc";
+    }
+  }
+  .panel-collapse{
+    .panel-body{
+      padding: 15px 30px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+    }
+  }
+}

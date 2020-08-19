@@ -1,0 +1,380 @@
+/* Feateured Product */
+.featured-box{
+	width: 100%;
+	background: #fff;
+	box-shadow: 0px 2px 18px 0px rgba(198,198,198,0.3);
+	margin-bottom: 15px;
+	margin-top: 15px;
+	figure{
+		margin: 0;
+		width: 100%;
+		float: left;
+		position: relative;
+		.icon{
+			i{
+				top: 10px;
+			    right: 10px;
+			    z-index: 2;
+			    color: #fff;
+			    font-size: 17px;
+			    font-weight: 500;
+			    text-align: center;
+			    position: absolute;
+			    background: $preset;
+			    padding: 10px;
+			    display: inline-block;
+			    border-radius: 50%;
+			}
+			
+		}
+	}
+	.feature-content{
+		display: inline-block;
+		padding: 0px 20px 10px;
+		.product{
+			width: 100%;
+			float: left;
+			font-size: 13px;
+			line-height: 18px;
+			list-style: none;
+			margin: 0 0 12px;
+			padding: 15px 0 10px;
+			border-bottom: 1px solid #eee;
+			a{
+				color: #333;
+				i{
+					margin-right: 5px;
+				}
+			}
+		}
+		h4{
+			font-size: 16px;
+			line-height: 20px;
+			text-transform: uppercase;
+			a{
+				color: #333;
+				&:hover{
+					color: $preset;
+				}
+			}
+		}
+		span{
+			margin-bottom: 10px;
+		    display: block;
+		    font-size: 13px;
+		    color: #999;
+		}
+		ul.address{
+			margin-bottom: 10px;
+			display: inline-block;
+			li{
+				float: left;
+			    width: 50%;
+			    line-height: 30px;
+			    color: #999;
+			    i{
+			    	margin-right: 5px;
+			    }
+				a{
+					color: #999;
+					&:hover{
+						color: $preset;
+					}
+				}
+			}
+		}
+		.listing-bottom{
+			padding-top: 15px;
+		    border-top: 1px solid #eee;
+		    display: inline-block;
+		    width: 100%;
+		    .price{
+		    	font-size: 18px;
+		    	color: $preset;
+		    	margin: 0;
+		    	line-height: 30px;
+		    }
+		    .btn-verified{
+		    	color: #999;
+			    line-height: 18px;
+			    font-size: 13px;
+			    border: 1px solid #eee;
+			    padding: 4px 10px;
+			    border-radius: 50px;
+			    -webkit-transition: all 0.2s linear;
+				-moz-transition: all 0.2s linear;
+				-o-transition: all 0.2s linear;
+				transition: all 0.2s linear;
+				i{
+					margin-right: 3px;
+					color: $preset;
+					-webkit-transition: all 0.2s linear;
+					-moz-transition: all 0.2s linear;
+					-o-transition: all 0.2s linear;
+					transition: all 0.2s linear;
+				}
+			    &:hover{
+			    	background: $preset;
+			    	border-color: $preset;
+			    	color: #fff;
+			    }
+		    }
+		    .btn-verified:hover i{
+		    	color: #fff;
+		    }
+		}
+	}
+}
+
+/* ==========================================================================
+   Featured Listings Styles
+   ========================================================================== */
+   .featured-lis{
+   	background: #fafafa;
+   }
+   .product-item{
+      background: #ffffff;
+      .carousel-thumb{
+        display: block;      
+        position: relative;
+        z-index: 99;    
+        overflow: hidden;
+        -webkit-transition:all .4s ease;
+        -moz-transition:all .4s ease;
+        -ms-transition:all .4s ease;
+        -o-transition:all .4s ease;
+        transition:all .4s ease;
+        .overlay{
+          position: absolute;
+          background-color: rgba(255,255,255,0.4);
+          text-align:center;
+          top:0;
+          left:0;
+          z-index:999;
+          bottom:-1px;
+          right:0;
+          opacity:0;
+          -webkit-transition:all .4s ease;
+          -moz-transition:all .4s ease;
+          -ms-transition:all .4s ease;
+          -o-transition:all .4s ease;
+          transition:all .4s ease;
+        }
+        .btn-product{
+        	a{
+        		padding: 5px 18px;
+	    		border-radius: 20px;
+			    left: 14px;
+			    font-weight: 700;
+			    position: absolute;
+			    top: 12px;
+			    z-index: 999;
+        	}
+        }
+      } 
+      .carousel-thumb:hover{
+        border-color: $preset;
+      }
+      .carousel-thumb:hover .overlay{
+        opacity: 1;
+        visibility: visible;
+      }   
+      .carousel-thumb:hover i{
+        opacity: 1;
+        visibility: visible;
+      }  
+      .product-content{
+      	padding: 15px 15px 0;
+      	position: relative;
+		    a{
+			    color: #999;
+			    font-size: 14px;
+			    font-weight: 400;
+			    margin-right: 5px;
+		    	i{
+		    		margin-right: 5px;
+		    	}
+      	}
+      }
+      .product-title{
+		    margin: 0;
+		    overflow: hidden;
+		    font-size: 14px;
+		    padding: 10px 0;
+		    position: relative;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+			    a{
+					color: #484848;
+					font-weight: 700;
+					font-size: 14px;
+					&:hover{
+						color: $preset;
+					}
+	    	}
+      }
+      p{
+      	margin-bottom: 10px;
+      }
+			.price{
+				position: absolute;
+				top: 30px;
+				right: 20px;
+				color: $preset;
+				display: block;
+				font-size: 18px;
+				font-weight: 700;
+			}
+			.icon-wrap{
+				margin-right: 5px;
+				color: $preset;
+			}
+			.card-text{
+				width: 100%;
+				display: inline-block;
+				margin-top: 15px;
+				padding: 15px 0;
+				border-top: 1px solid #f1f1f1;
+				.icon{
+					  color: $preset;
+					  font-size: 15px;
+					  margin-right: 5px;
+				}
+			}
+		}
+    .bg-red{
+    	a{
+    		background: #ff6670;
+    		color: #fff!important;
+    	}
+    }
+    .bg-yellow{
+    	a{
+    		background: #FFC107;
+    		color: #fff!important;
+    	}
+    }
+   #new-products .owl-controls .owl-buttons{
+    position: relative;
+    top: -215px;
+    left: 0;
+   }
+   #new-products .owl-controls .owl-buttons div.owl-prev{
+    float: left;
+    margin-left: -45px;
+   }
+   #new-products .owl-controls .owl-buttons div.owl-next{
+    float: right !important;
+    margin-right: -45px;
+   }
+   .owl-theme .owl-controls .owl-buttons div{
+    width: 40px;
+    height: 40px;
+    display: block !important;    
+    background: $preset !important;
+    text-align: center;
+    display: inline-block;
+    opacity: 1!important;
+    border-radius: 50px!important;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.18), 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    &:hover{
+      box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+      opacity: 0.8!important;
+    }
+    i{
+      color: #fff;
+      font-size: 16px;
+      line-height: 40px;
+    }
+   }
+   // Featured Ads
+   #featured{
+   	background-color: #fafafa;
+   	.featured-box{
+   		margin-top: 0;
+   	}
+   }
+	.futere-ad-widget{
+		position: relative;
+	    overflow: hidden;
+	    color: #ffffff;
+    img{
+    	height: auto;
+	    max-width: 100%;
+	    border: none;
+	    -webkit-border-radius: 0;
+	    border-radius: 0;
+	    -webkit-box-shadow: none;
+	    box-shadow: none;
+    }
+    .ctl-content-wrapper{
+    	background: none;
+	    position: absolute;
+	    z-index: 2;
+	    width: 100%;
+	    height: 100%;
+	    left: 0;
+	    top: 0;
+	    padding: 30px;
+	    background: -moz-linear-gradient(top,rgba(1,1,25,0.65) 0,rgba(1,1,25,0.30) 100%);
+	    background: -webkit-linear-gradient(top,rgba(1,1,25,0.65) 0,rgba(1,1,25,0.30) 100%);
+	    background: linear-gradient(to bottom,rgba(1,1,25,0.65) 0,rgba(1,1,25,0.30) 100%);
+	    box-shadow: 0 0 black;
+	    .icon{
+	    	margin-bottom: 20px;
+	    	i{
+	    		font-size: 40px;
+	    	}
+	    }
+	    .ctl-content{
+				h3{
+					font-size: 26px;
+			    font-weight: 600;
+			    line-height: normal;
+				}
+				p{
+					display: block;
+    			margin-bottom: 30px;
+				}
+	    }
+	    .ctl-button{
+	    	position: absolute;
+    		bottom: 30px;
+	    }
+    }
+	}
+	.categories-list-ad{
+		margin-top: 30px;
+		.widget-title{
+			font-size: 20px;
+		}
+		.categories-list{
+			padding: 10px 20px 20px 20px;
+			margin-top: 30px;
+		  	background-color: #ffffff;
+		  	box-shadow: 0px 2px 18px 0px rgba(198,198,198,0.3);
+		  li{
+		  	clear: both;
+		    overflow: hidden;
+		    padding: 8px 0;
+		    border-bottom: 1px solid #eee;
+		    a{
+		    	color: #2d2d2d;
+		    	i{
+		    		margin-right: 5px;
+		    	}
+		    	&:hover{
+		    		color: $preset;
+		    	}
+		    }
+		  }
+		  li:last-child{
+		  	border-bottom: none;
+		  }
+		}
+	}
+

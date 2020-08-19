@@ -1,0 +1,154 @@
+/* Services Item */
+.services-item{
+		padding: 30px 15px; 
+	    background: #fafafa;
+	    text-align: center;
+	    margin-bottom: 30px;
+	    border-radius: 4px;
+	    border-bottom: 3px solid #f1f1f1;
+	    transition: all 0.3s ease-in-out 0s;
+	    -moz-transition: all 0.3s ease-in-out 0s;
+	    -webkit-transition: all 0.3s ease-in-out 0s;
+	    -o-transition: all 0.3s ease-in-out 0s;
+	.icon{
+		i{
+			background: $preset;
+		    width: 60px;
+		    height: 60px;
+		    display: inline-block;
+		    line-height: 60px;
+		    font-size: 30px;
+		    border-radius: 50px;
+		    color: #fff;
+		    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.25);
+		    -webkit-transform: scale(1);
+		    -moz-transform: scale(1);
+		    -ms-transform: scale(1);
+		    transform: scale(1);
+		    transition: all 0.3s ease-in-out 0s;
+		    -moz-transition: all 0.3s ease-in-out 0s;
+		    -webkit-transition: all 0.3s ease-in-out 0s;
+		    -o-transition: all 0.3s ease-in-out 0s;
+
+		}
+	}
+	.services-content{
+		h3{
+			margin-bottom: 5px;
+			a{
+				font-size: 16px;
+				text-transform: uppercase;			
+    		color: #484848;
+    			&:hover{
+    				color: $preset;
+    			}
+			}
+		}
+	}
+	&:hover{
+		border-color: $preset;
+	}
+}
+.services-item:hover .icon i{
+	-webkit-transform: scale(0.9);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(0.9);
+}
+
+
+// Services Section Two
+.services-tow-area{
+	background: #fff;
+  box-shadow: 0 5px 30px 0 rgba(0,0,0,.05);
+  border-radius: 3px;
+  .service-two-item-wrapper{
+  	padding: 0;
+    border-right: 1px solid #ededed;
+    &:last-child{
+    	border-right: none;
+    }
+    .icon{
+    	margin-bottom: 15px;
+    	-webkit-transition: all .2s ease-in-out 0s;
+	    -o-transition: all .2s ease-in-out 0s;
+	    transition: all .2s ease-in-out 0s;
+    	i{
+    		font-size: 60px;
+    		color: $preset;
+    		display: inline-block;
+    	}
+    }
+    .services-item-two{
+  	  padding: 40px 30px;
+  		overflow: hidden;
+  		.services-content{
+  			-webkit-transition: transform .5s;
+		    -o-transition: transform .5s;
+		    transition: transform .5s;
+		    h3{
+					margin-bottom: 10px;
+					a{
+						font-size: 16px;		
+		    		color: #484848;
+	    			&:hover{
+	    				color: $preset;
+	    			}
+					}
+				}
+				p{
+					margin-bottom: 0;
+					opacity: 0.7;
+				}
+				.service-two-btn{
+					color: $preset;
+				}
+  		}
+			.service-two-btn{
+				display: inline-block;
+			  opacity: 0;
+			  filter: alpha(opacity=0);
+			  visibility: hidden;
+			}
+    }
+  }
+}
+.services-tow-area > .row{
+	margin: 0;
+}
+.services-item-two:hover > .services-content{
+  -webkit-transform: translateY(-25%);
+  -moz-transform: translateY(-25%);
+  -ms-transform: translateY(-25%);
+  -o-transform: translateY(-25%);
+  transform: translateY(-25%);
+}
+.services-item-two:hover .services-content .service-two-btn{
+	opacity: 1;
+  filter: alpha(opacity=100);
+  visibility: visible;
+  -webkit-transform: translateY(225%);
+  -moz-transform: translateY(225%);
+  -ms-transform: translateY(225%);
+  -o-transform: translateY(225%);
+  transform: translateY(225%);
+}
+.services-item-two:hover > .services-content{
+  -webkit-transform: translateY(-25%);
+  -moz-transform: translateY(-25%);
+  -ms-transform: translateY(-25%);
+  -o-transform: translateY(-25%);
+  transform: translateY(-25%);
+}
+.services-item-two .service-two-btn,
+.services-item-two .icon{
+  -webkit-transition: all .2s ease-in-out 0s;
+  -o-transition: all .2s ease-in-out 0s;
+  transition: all .2s ease-in-out 0s;
+}
+.services-item-two:hover .icon{
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+

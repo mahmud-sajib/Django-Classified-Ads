@@ -1,0 +1,192 @@
+
+/* Contact Forme */
+#conatiner-map{
+	width: 100%;
+	height: 480px;
+}
+#google-map-area{
+	padding-top: 60px;
+	position: relative;
+	.container-fluid{
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+#content{
+	position: relative;
+	.contact-form, 
+	.information{
+		margin-top: 40px;
+	}
+	.contact-title{
+	    font-size: 20px;
+	    font-weight: 500;
+	    margin-bottom: 30px;
+	    padding-bottom: 25px;
+	    position: relative;
+	    &:before{
+	    	content: "";
+		    height: 3px;
+		    width: 40px;
+		    background: $preset;
+		    position: absolute;
+		    left: 0;
+		    bottom: 0;
+		    z-index: 1;
+	    }
+	}
+	.contact-datails{
+		margin-top: 15px;
+		position: relative;
+		.icon{
+			position: absolute;
+			i{
+				font-size: 18px;
+				color: $preset;
+			}
+		}
+		.info{
+			padding-left: 28px;
+			h3{
+				font-size: 15px;
+				display: block;
+			}
+			.datail{
+				display: block;	
+				color: #888;		
+			}
+		}
+	}
+}
+// Contact Page
+.form-group{
+	margin-bottom: 30px;
+}
+.form-control{
+	display: block;
+    width: 100%;
+    line-height: 26px;
+    font-size: 14px;
+    box-shadow: none;
+    color: #848484;
+    text-transform: capitalize;
+    background: #ffffff;
+    padding: 7px 19px;
+    border: 1px solid #e5e5e5;
+    border-radius: 50px;
+    font-weight: 400;
+    transition: all 500ms ease;
+    -webkit-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+}
+textarea{
+	border-radius: 4px!important;
+}
+.form-control:focus{
+    border-color: $preset;
+    outline: 0;
+	box-shadow: none;
+}
+
+// Login Pages
+.login-area{
+	width: 100%;
+    background: #fafafa;
+    border: 1px solid #eaedef;
+    h3{
+    	margin: 0;
+	    padding: 0 20px;
+	    font-size: 16px;
+	    font-weight: 500;
+	    line-height: 48px;
+	    background: #f7f7f7;
+	    text-align: center;
+	    border-bottom: 1px solid #eaedef;
+    }
+    .login-form{
+    	padding: 30px 15px;
+    	.input-icon{
+    		position: relative;
+    		i{
+    			font-size: 15px;
+			    left: 16px;
+			    color: #999;
+			    line-height: 22px;
+			    margin-top: -11px;
+			    position: absolute;
+			    top: 50%;
+    		}
+    		input{
+    			padding-left: 40px;
+    		}
+    	}
+    }
+    .checkbox{
+    	display: inline-block;
+    	label{
+    		font-size: 13px;
+    		margin-left: 5px;
+    	}
+    }
+    .forgetpassword{
+    	float: right;
+    	font-size: 14px;
+    	line-height: 20px;
+		color: #999;
+		&:hover{
+			color: $preset;
+		}
+    }
+    .form-links{
+    	a{
+    		color: #999;
+    		&:hover{
+    			color: $preset;
+    		}
+    	}
+    }
+}
+.close-account{
+	padding: 15px;
+	text-align: center;
+	p{
+		margin-bottom: 10px;
+	}
+	.radio-inline{
+		margin: 0px 5px 15px;
+	}
+}
+// Subscribes
+.wrapper-sub{
+	padding: 50px 20px;
+    background: #fafafa;
+}
+.subscribes{
+	p{
+		font-size: 18px;
+		color: #484848;
+		line-height: 30px;
+		font-weight: 500;
+	}
+}
+.subscribe{
+	margin-top: 5px;
+	width: 100%;
+	.form-control{
+	  float: left;
+	  width: 100%;
+	  border-radius: 50px;
+	  position: relative;
+	  height: 52px;
+	}
+	.btn{
+		padding: 14px 26px;
+	    border-top-left-radius: 0;
+	    position: absolute;
+	    top: 5px;
+	    right: 15px;
+	    border-bottom-left-radius: 0;
+	}
+}
+

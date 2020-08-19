@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Hunting Ads - Classified ads for hunting related stuffs</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Icon -->
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/line-icons.css' %}">
+    <!-- Slicknav -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slicknav.css' %}">
+
+    <!-- Nivo Lightbox -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/nivo-lightbox.css' %}">
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
+    <!-- Owl carousel -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.css' %}">
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+
+</head>
+
+<body>
+
+    <!-- Header Area wrapper Starts -->
+    <header id="header-wrap">
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
+                        aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="lni-menu"></span>
+                        <span class="lni-menu"></span>
+                        <span class="lni-menu"></span>
+                    </button>
+                    <a href="{% url 'home' %}" class="navbar-brand"><img src="{% static 'img/logo.png' %}" alt=""></a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-navbar">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'home' %}">
+                                Home
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'ads-listing' %}">
+                                Ads Listing
+                            </a>
+                        </li>
+                        
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'faq' %}">
+                                FAQ
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contact' %}">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                    <a class="tg-btn" href="{% url 'post-ads' %}">
+                        <i class="lni-pencil-alt"></i> Post An Ad
+                    </a>
+                    <ul class="sign-in">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"><i class="lni-user"></i> My Account</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{% url 'signup' %}"><i class="lni-user"></i>
+                                    Signup</a>
+                                <a class="dropdown-item" href="{% url 'login' %}"><i class="lni-lock"></i>
+                                    Login</a>
+
+                                <a class="dropdown-item" href="{% url 'dashboard' %}"><i class="lni-dashboard"></i> Dashboard</a>
+
+                                <a class="dropdown-item" href="{% url 'profile-settings' %}"><i class="lni-cog"></i>
+                                    Account Settings</a>
+                                <a class="dropdown-item" href="{% url 'profile-ads' %}"><i class="lni-wallet"></i> My Ads</a>
+                                <a class="dropdown-item" href="{% url 'profile-favorite-ads' %}"><i class="lni-heart"></i>
+                                    Favourite ads</a>
+                                
+                                <a class="dropdown-item" href="{% url 'profile-close' %}"><i class="lni-close"></i>Account
+                                    close</a>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+
+            <!-- Mobile Menu Start -->
+            <ul class="mobile-menu">
+                <li>
+                    <a class="active" href="{% url 'home' %}">
+                        Home
+                    </a>
+
+                </li>
+
+                <li>
+                    <a href="{% url 'ads-listing' %}">
+                        Ads Listings
+                    </a>
+
+                </li>
+                <li>
+                    <a href="{% url 'faq' %}">FAQ</a>
+                    
+                </li>
+
+                <li>
+                    <a href="{% url 'contact' %}">Contact Us</a>
+                </li>
+                
+                <li>
+                    <a>My Account</a>
+                    <ul class="dropdown">
+                        <li><a href="{% url 'signup' %}"><i class="lni-user"></i> Signup</a></li>
+                        <li><a href="{% url 'login' %}"><i class="lni-lock"></i> Login</a></li>
+                        <li><a href="{% url 'dashboard' %}"><i class="lni-dashboard"></i> Dashboard</a></li>
+                        <li><a href="{% url 'profile-settings' %}"><i class="lni-cog"></i> Account Settings</a></li>
+                        <li><a href="{% url 'profile-ads' %}"><i class="lni-wallet"></i> My Ads</a></li>
+                        <li><a href="{% url 'profile-favorite-ads' %}"><i class="lni-heart"></i> Favourite ads</a></li>
+                        <li><a href="{% url 'profile-close' %}"><i class="lni-close"></i>Account close</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'post-ads' %}" class="tg-btn"><i class="lni-pencil-alt"></i> Post An Ad</a>
+                </li>
+            </ul>
+            <!-- Mobile Menu End -->
+
+        </nav>
+        <!-- Navbar End -->
+    </header>
+    <!-- Header Area wrapper End -->

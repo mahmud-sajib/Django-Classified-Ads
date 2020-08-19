@@ -1,0 +1,81 @@
+/* ==========================================================================
+   Pricing Table Style
+   ========================================================================== */
+   .mainHeading{
+    text-align: center;
+    margin-bottom: 20px;
+    .section-title{
+      padding: 20px 0px;
+    }
+   }
+   #pricing-table{
+    text-align: center;
+    .title{
+        padding-top: 25px;
+        padding-bottom: 25px;
+        h3{
+          text-transform: uppercase;
+          font-size: 24px;
+          margin-bottom: 0px;
+        }
+    }
+    .table{
+        padding-bottom: 30px;
+        border-radius: 4px;
+        background: #ffffff;
+        box-shadow: 0px 2px 18px 0px rgba(198,198,198,0.3);
+        border-bottom: 3px solid #ddd;
+        -webkit-transition: all .3s linear;
+        -moz-transition: all .3s linear;
+        -ms-transition: all .3s linear;
+        -o-transition: all .3s linear;
+        transition: all .3s linear;
+        .icon{
+          padding-top: 30px;
+           i{
+              color: $preset;
+              font-size: 42px;
+           }
+        }
+        .pricing-header{
+            position: relative;
+            padding-bottom: 20px;
+            text-align: center;
+            .price-value{
+                font-size: 46px;
+                color: $preset;
+                position: relative;
+                text-align: center;
+                font-weight: 700;
+                line-height: 62px;
+                sup{
+                    font-size: 18px;
+                    font-weight: 500;
+                    top: -18px;
+                }
+                span{
+                  font-size: 14px;
+                  font-weight: 500;
+                }
+            }
+        }
+        .description{
+            text-align: center;
+            padding: 0px 50px;
+            margin-bottom: 20px;
+            li{
+              font-size: 14px;
+              font-weight: 500;
+              color: #7a7d80;
+              padding-bottom: 15px;            
+            }
+        }
+    } 
+    .table:hover{
+      border-color: $preset;
+    }
+    #active-tb{
+      border-color: $preset;
+    }
+  }
+
