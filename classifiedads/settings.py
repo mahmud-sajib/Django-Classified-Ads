@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'ads',
     'profiles',
     'authentication',
+    'ckeditor',
+    
 ]
 
 MIDDLEWARE = [
@@ -131,3 +133,16 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 # URL that handles the media files served from MEDIA_ROOT. 
 MEDIA_URL = '/images/'
+
+# CKEDITOR Configs
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}

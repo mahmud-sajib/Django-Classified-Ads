@@ -1,5 +1,5 @@
 from django.db import models
-
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 class Ads(models.Model):
@@ -93,20 +93,20 @@ class Ads(models.Model):
 
 
     title = models.CharField(max_length=200)
-    description = models.TextField(blank=True)
+    description = RichTextField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
     date_created = models.DateTimeField(auto_now_add=True)
     state = models.CharField(max_length=100, choices=STATE)
     city = models.CharField(max_length=100)
-    specification = models.TextField(blank=True)
+    specification = RichTextField()
     category = models.CharField(max_length=100, choices=CATEGORY)
     condition = models.CharField(max_length=100, choices=CONDITION)
     brand = models.CharField(max_length=200)
     image = models.ImageField(upload_to='uploads/%Y/%m/%d', blank=True) 
     phone = models.CharField(max_length=50)
+    is_featured = models.BooleanField(default=False)
 
     class Meta:
-        verbose_name = "Classified Ad"
         verbose_name_plural = "Classified Ads"
 
     def __str__(self):
