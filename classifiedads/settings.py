@@ -37,15 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # My apps
     'pages',
     'ads',
     'profiles',
     'authentication',
+    # Packages
     'ckeditor',
+    'debug_toolbar',
     
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -133,6 +137,13 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 # URL that handles the media files served from MEDIA_ROOT. 
 MEDIA_URL = '/images/'
+
+# DJ_DEBUG_TOOLBAR
+INTERNAL_IPS = [
+    # ...
+    '127.0.0.1',
+    # ...
+]
 
 # CKEDITOR Configs
 CKEDITOR_CONFIGS = {

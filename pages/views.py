@@ -1,19 +1,23 @@
 from django.shortcuts import render
 
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-
-from django.db.models import Count, Q
-
-# importing messages
-from django.contrib import messages
+from ads.models import Ads
 
 # Model Forms.
 
 # Create your views here.
 
 def home(request):
-    return render(request, 'pages/index.html')
+    recent_ads = Ads.objects.order_by('date_created')[0:3]
+    featured_ads = Ads.objects.filter(is_featured=True)
+    # view_log = str(featured_ads.query)
+    # print(view_log)
+    
+    context = {
+        'recent_ads' : recent_ads,
+        'featured_ads' : featured_ads,
+    }
+
+    return render(request, 'pages/index.html', context)
 
 def faq(request):
     return render(request, 'pages/faq.html')

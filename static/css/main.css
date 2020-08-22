@@ -146,7 +146,7 @@ ul li, ol li {
   bottom: 10px;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  background-color: #00BCD4;
+  background-color: #89613A;
 }
 
 .section-subcontent {
@@ -175,7 +175,7 @@ ul li, ol li {
   bottom: 10px;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  background-color: #00BCD4;
+  background-color: #89613A;
 }
 
 .subtitle {
@@ -223,7 +223,7 @@ ul li, ol li {
 }
 
 .btn-common {
-  background-color: #00BCD4;
+  background-color: #89613A;
   position: relative;
   color: #fff;
   z-index: 1;
@@ -267,7 +267,7 @@ button:focus {
 }
 
 .icon-close, .icon-check {
-  color: #00BCD4;
+  color: #89613A;
 }
 
 .bg-drack {
@@ -302,7 +302,7 @@ a.back-to-top i {
   height: 40px;
   line-height: 40px;
   color: #fff;
-  background: #00BCD4;
+  background: #89613A;
   border-radius: 50px;
   text-align: center;
   transition: all 0.2s ease-in-out;
@@ -369,7 +369,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   height: 100%;
   border-radius: 100%;
   border: 7px solid transparent;
-  border-top-color: #00BCD4;
+  border-top-color: #89613A;
 }
 
 #loader-1:before {
@@ -429,7 +429,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 
 .page-header .breadcrumb-wrapper .breadcrumb {
   font-size: 14px;
-  color: #00BCD4;
+  color: #89613A;
   border-radius: 0px;
   background: transparent;
   padding: 5px 0px;
@@ -446,7 +446,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 }
 
 #color-style-switcher .bottom a.settings {
-  color: #00BCD4;
+  color: #89613A;
 }
 
 @-webkit-keyframes fadeIn {
@@ -545,7 +545,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 }
 
 .top-nav-collapse .navbar-nav .nav-link:hover {
-  color: #00BCD4 !important;
+  color: #89613A !important;
 }
 
 .top-nav-collapse .navbar-nav li.active a.nav-link {
@@ -576,7 +576,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 .navbar-expand-lg .navbar-nav li a:hover,
 .navbar-expand-lg .navbar-nav li .active > a,
 .navbar-expand-lg .navbar-nav li a:focus {
-  color: #00BCD4;
+  color: #89613A;
   outline: none;
 }
 
@@ -586,7 +586,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 
 .navbar li.active a.nav-link {
   color: #fff !important;
-  background: #00BCD4;
+  background: #89613A;
   border-radius: 30px;
 }
 
@@ -666,7 +666,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 .dropdown .dropdown-item:focus,
 .dropdown .dropdown-item:hover,
 .dropdown .dropdown-item.active {
-  background: #00BCD4;
+  background: #89613A;
   color: #fff !important;
 }
 
@@ -680,7 +680,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   padding: 3px 15px 3px;
   margin-right: 10px;
   position: relative;
-  background: #00BCD4;
+  background: #89613A;
   text-align: center;
   border-radius: 30px;
   display: inline-block;
@@ -706,7 +706,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 }
 
 .sign-in li .nav-link {
-  color: #00BCD4;
+  color: #89613A;
   font-weight: 400;
   font-size: 14px;
   display: inline-block;
@@ -735,11 +735,11 @@ a.back-to-top:hover, a.back-to-top:focus {
 }
 
 .slicknav_btn {
-  border-color: #00BCD4;
+  border-color: #89613A;
 }
 
 .slicknav_menu .slicknav_icon-bar {
-  background: #00BCD4;
+  background: #89613A;
 }
 
 /* only small tablets */
@@ -840,7 +840,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 }
 
 #hero-area .contents span.year {
-  color: #00BCD4;
+  color: #89613A;
 }
 
 #hero-area .contents p {
@@ -957,7 +957,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   top: 0;
   left: 0;
   z-index: 2;
-  color: #00BCD4;
+  color: #89613A;
   position: absolute;
   left: 20px;
   font-size: 20px;
@@ -1308,7 +1308,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   top: 0;
   left: 0;
   z-index: 2;
-  color: #00BCD4;
+  color: #89613A;
   position: absolute;
   left: 20px;
   font-size: 20px;
@@ -1468,7 +1468,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 }
 
 .featured-box .feature-content ul.address li a:hover {
-  color: #00BCD4;
+  color: #89613A;
 }
 
 .featured-box .feature-content .listing-bottom {
@@ -1480,7 +1480,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 
 .featured-box .feature-content .listing-bottom .price {
   font-size: 18px;
-  color: #00BCD4;
+  color: #89613A;
   margin: 0;
   line-height: 30px;
 }
@@ -1614,7 +1614,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 }
 
 .product-item .product-title a:hover {
-  color: #00BCD4;
+  color: #89613A;
 }
 
 .product-item p {
@@ -1625,7 +1625,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   position: absolute;
   top: 30px;
   right: 20px;
-  color: #00BCD4;
+  color: #89613A;
   display: block;
   font-size: 18px;
   font-weight: 700;
@@ -4387,7 +4387,7 @@ textarea {
   content: "";
   height: 3px;
   width: 40px;
-  background: #00BCD4;
+  background: #89613A;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -4542,7 +4542,7 @@ footer .menu li a:hover {
 }
 
 .footer-social li a {
-  background-color: #00BCD4;
+  background-color: #89613A;
   border-radius: 50%;
   color: #fff;
   height: 32px;

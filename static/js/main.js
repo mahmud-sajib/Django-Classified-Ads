@@ -96,7 +96,7 @@
         slideSpeed: 1000,
         stopOnHover: true,
         autoPlay: false,
-        items: 4,
+        items: 3,
         itemsDesktop : [1199,3],
         itemsDesktopSmall : [980,2],
         itemsTablet: [768,1],

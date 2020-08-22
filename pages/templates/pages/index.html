@@ -61,264 +61,80 @@
 </div>
 <!-- Hero Area End -->
 
-<!-- Featured Section Start -->
+<!-- Latest Ads Listing Section Start -->
 <section class="featured section-padding">
   <div class="container">
-    <h1 class="section-title">Latest Products</h1>
+    <h1 class="section-title">Latest Classifieds</h1>
     <div class="row">
+      {% for recent_ad in recent_ads %}
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
         <div class="featured-box">
           <figure>
             <div class="icon">
               <i class="lni-heart"></i>
             </div>
-            <a href="#"><img class="img-fluid" src="{% static 'img/featured/img1.jpg' %}" alt=""></a>
+            <a href="#"><img class="img-fluid" src="{{ recent_ad.image.url }}" alt=""></a>
           </figure>
           <div class="feature-content">
             <div class="product">
-              <a href="#"><i class="lni-folder"></i> Mobile Phones</a>
+              <a href="#"><i class="lni-folder"></i>{{ recent_ad.category}}</a>
             </div>
-            <h4><a href="ads-details.html">Apple iPhone X</a></h4>
-            <span>Last Updated: 1 hours ago</span>
+            <h4><a href="ads-details.html">{{ recent_ad.title}}</a></h4>
+            <span>Created: {{ recent_ad.date_created}}</span>
             <ul class="address">
               <li>
-                <a href="#"><i class="lni-map-marker"></i> New York, US</a>
+                <a href="#"><i class="lni-map-marker"></i>{{ recent_ad.state}}</a>
               </li>
               <li>
-                <a href="#"><i class="lni-alarm-clock"></i> Feb 18, 2018</a>
+                <a href="#"><i class="lni-alarm-clock"></i>{{ recent_ad.date_created | date}}</a>
               </li>
               <li>
                 <a href="#"><i class="lni-user"></i> Maria Barlow</a>
               </li>
               <li>
-                <a href="#"><i class="lni-package"></i> Used</a>
+                <a href="#"><i class="lni-package"></i>{{ recent_ad.condition }}</a>
               </li>
             </ul>
             <div class="listing-bottom">
-              <h3 class="price float-left">$200.00</h3>
+              <h3 class="price float-left">{{ recent_ad.price }}</h3>
               <a href="account-myads.html" class="btn-verified float-right"><i class="lni-check-box"></i> Verified
                 Ad</a>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-        <div class="featured-box">
-          <figure>
-            <div class="icon">
-              <i class="lni-heart"></i>
-            </div>
-            <a href="#"><img class="img-fluid" src="{% static 'img/featured/img2.jpg' %}" alt=""></a>
-          </figure>
-          <div class="feature-content">
-            <div class="product">
-              <a href="#"><i class="lni-folder"></i> Real Estate</a>
-            </div>
-            <h4><a href="ads-details.html">Amazing Room for Rent</a></h4>
-            <span>Last Updated: 2 hours ago</span>
-            <ul class="address">
-              <li>
-                <a href="#"><i class="lni-map-marker"></i> Dallas, Washington</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-alarm-clock"></i> Jan 7, 2018</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-user"></i> John Smith</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-package"></i> N/A</a>
-              </li>
-            </ul>
-            <div class="listing-bottom">
-              <h3 class="price float-left">$450.00</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-        <div class="featured-box">
-          <figure>
-            <div class="icon">
-              <i class="lni-heart"></i>
-            </div>
-            <a href="#"><img class="img-fluid" src="{% static 'img/featured/img3.jpg' %}" alt=""></a>
-          </figure>
-          <div class="feature-content">
-            <div class="product">
-              <a href="#"><i class="lni-folder"></i> Electronics</a>
-            </div>
-            <h4><a href="ads-details.html">Canon SX Powershot D-SLR</a></h4>
-            <span>Last Updated: 4 hours ago</span>
-            <ul class="address">
-              <li>
-                <a href="#"><i class="lni-map-marker"></i> Dallas, Washington</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-alarm-clock"></i> Mar 18, 2018</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-user"></i> David Givens</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-package"></i> Used</a>
-              </li>
-            </ul>
-            <div class="listing-bottom">
-              <h3 class="price float-left">$700.00</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-        <div class="featured-box">
-          <figure>
-            <div class="icon">
-              <i class="lni-heart"></i>
-            </div>
-            <a href="#"><img class="img-fluid" src="{% static 'img/featured/img4.jpg' %}" alt=""></a>
-          </figure>
-          <div class="feature-content">
-            <div class="product">
-              <a href="#"><i class="lni-folder"></i> Vehicles</a>
-            </div>
-            <h4><a href="ads-details.html">BMW 5 Series GT Car</a></h4>
-            <span>Last Updated: 5 hours ago</span>
-            <ul class="address">
-              <li>
-                <a href="#"><i class="lni-map-marker"></i> Dallas, Washington</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-alarm-clock"></i> Dec 18, 2018</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-user"></i> Elon Musk</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-package"></i> N/A</a>
-              </li>
-            </ul>
-            <div class="listing-bottom">
-              <h3 class="price float-left">$300.00</h3>
-              <a href="account-myads.html" class="btn-verified float-right"><i class="lni-check-box"></i> Verified
-                Ad</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-        <div class="featured-box">
-          <figure>
-            <div class="icon">
-              <i class="lni-heart"></i>
-            </div>
-            <a href="#"><img class="img-fluid" src="{% static 'img/featured/img5.jpg' %}" alt=""></a>
-          </figure>
-          <div class="feature-content">
-            <div class="product">
-              <a href="#"><i class="lni-folder"></i> Apple</a>
-            </div>
-            <h4><a href="ads-details.html">Apple Macbook Pro 13 Inch</a></h4>
-            <span>Last Updated: 4 hours ago</span>
-            <ul class="address">
-              <li>
-                <a href="#"><i class="lni-map-marker"></i>Louis, Missouri, US</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-alarm-clock"></i> May 18, 2018</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-user"></i> Will Ernest</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-package"></i> Brand New</a>
-              </li>
-            </ul>
-            <div class="listing-bottom">
-              <h3 class="price float-left">$450.00</h3>
-              <a href="account-myads.html" class="btn-verified float-right"><i class="lni-check-box"></i> Verified
-                Ad</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-        <div class="featured-box">
-          <figure>
-            <div class="icon">
-              <i class="lni-heart"></i>
-            </div>
-            <a href="#"><img class="img-fluid" src="{% static 'img/featured/img6.jpg' %}" alt=""></a>
-          </figure>
-          <div class="feature-content">
-            <div class="product">
-              <a href="#"><i class="lni-folder"></i> Restaurant</a>
-            </div>
-            <h4><a href="ads-details.html">Cream Restaurant</a></h4>
-            <span>Last Updated: 4 hours ago</span>
-            <ul class="address">
-              <li>
-                <a href="#"><i class="lni-map-marker"></i> Dallas, Washington</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-alarm-clock"></i> Feb 18, 2018</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-user"></i> Samuel Palmer</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-package"></i> Brand New</a>
-              </li>
-            </ul>
-            <div class="listing-bottom">
-              <h3 class="price float-left">$250.00</h3>
-              <a href="account-myads.html" class="btn-verified float-right"><i class="lni-check-box"></i> Verified
-                Ad</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
+      
     </div>
   </div>
 </section>
-<!-- Featured Section End -->
+<!-- Latest Ads Listing Section End -->
 
-<!-- Featured Listings Start -->
+<!-- Featured Ads Listings Start -->
 <section class="featured-lis section-padding">
   <div class="container">
     <div class="row">
       <div class="col-md-12 wow fadeIn" data-wow-delay="0.5s">
-        <h3 class="section-title">Featured Products</h3>
+        <h3 class="section-title">Featured Classifieds</h3>
         <div id="new-products" class="owl-carousel">
+          {% for featured_ad in featured_ads %}
           <div class="item">
             <div class="product-item">
               <div class="carousel-thumb">
-                <img class="img-fluid" src="{% static 'img/product/img1.jpg' %}" alt="">
+                <img class="img-fluid" src="{{ featured_ad.image.url }}" alt="">
                 <div class="overlay">
                 </div>
                 <div class="btn-product bg-yellow">
-                  <a href="#">New</a>
+                  <a href="#">{{ featured_ad.condition }}</a>
                 </div>
               </div>
               <div class="product-content">
-                <h3 class="product-title"><a href="ads-details.html">Apple Macbook Pro</a></h3>
-                <p>Lorem ipsum dolor sit</p>
-                <span class="price">$ 89.00</span>
-                <div class="meta">
-                  <span class="icon-wrap">
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star"></i>
-                    <i class="lni-star"></i>
-                  </span>
-                  <span class="count-review">
-                    <span>1</span> Reviews
-                  </span>
-                </div>
+                <h3 class="product-title"><a href="ads-details.html">{{ featured_ad.title }}</a></h3>
+                <p>{{ featured_ad.description | safe | truncatewords:20 }}</p>
+                <span class="price">{{ featured_ad.price }}</span>
                 <div class="card-text">
                   <div class="float-left">
-                    <a href="#"><i class="lni-map-marker"></i> East 7th stree 98</a>
+                    <a href="#"><i class="lni-map-marker"></i>{{ featured_ad.city }}, {{ featured_ad.state }}</a>
                   </div>
                   <div class="float-right">
                     <div class="icon">
@@ -329,267 +145,7 @@
               </div>
             </div>
           </div>
-          <div class="item">
-            <div class="product-item">
-              <div class="carousel-thumb">
-                <img class="img-fluid" src="{% static 'img/product/img2.jpg' %}" alt="">
-                <div class="overlay">
-                </div>
-              </div>
-              <div class="product-content">
-                <h3 class="product-title"><a href="ads-details.html">Nikon D70 Camerar</a></h3>
-                <p>Lorem ipsum dolor sit</p>
-                <span class="price">$ 79.00</span>
-                <div class="meta">
-                  <span class="icon-wrap">
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star"></i>
-                    <i class="lni-star"></i>
-                  </span>
-                  <span class="count-review">
-                    <span>1</span> Reviews
-                  </span>
-                </div>
-                <div class="card-text">
-                  <div class="float-left">
-                    <a href="#"><i class="lni-map-marker"></i> Drive Street, US</a>
-                  </div>
-                  <div class="float-right">
-                    <div class="icon">
-                      <i class="lni-heart"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="product-item">
-              <div class="carousel-thumb">
-                <img class="img-fluid" src="{% static 'img/product/img3.jpg' %}" alt="">
-                <div class="overlay">
-                </div>
-                <div class="btn-product bg-red">
-                  <a href="#">Discount 50%</a>
-                </div>
-              </div>
-              <div class="product-content">
-                <h3 class="product-title"><a href="ads-details.html">Iphone X</a></h3>
-                <p>Lorem ipsum dolor sit</p>
-                <span class="price">$ 30.00</span>
-                <div class="meta">
-                  <span class="icon-wrap">
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star"></i>
-                    <i class="lni-star"></i>
-                  </span>
-                  <span class="count-review">
-                    <span>1</span> Reviews
-                  </span>
-                </div>
-                <div class="card-text">
-                  <div class="float-left">
-                    <a href="#"><i class="lni-map-marker"></i> Louis, Missouri, US</a>
-                  </div>
-                  <div class="float-right">
-                    <div class="icon">
-                      <i class="lni-heart"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="product-item">
-              <div class="carousel-thumb">
-                <img class="img-fluid" src="{% static 'img/product/img4.jpg' %}" alt="">
-                <div class="overlay">
-                </div>
-              </div>
-              <div class="product-content">
-                <h3 class="product-title"><a href="ads-details.html">Brown Leather Bag</a></h3>
-                <p>Lorem ipsum dolor sit</p>
-                <span class="price">$ 59.00</span>
-                <div class="meta">
-                  <span class="icon-wrap">
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star"></i>
-                    <i class="lni-star"></i>
-                  </span>
-                  <span class="count-review">
-                    <span>1</span> Reviews
-                  </span>
-                </div>
-                <div class="card-text">
-                  <div class="float-left">
-                    <a href="#"><i class="lni-map-marker"></i> Avenue C, New York, US</a>
-                  </div>
-                  <div class="float-right">
-                    <div class="icon">
-                      <i class="lni-heart"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="product-item">
-              <div class="carousel-thumb">
-                <img class="img-fluid" src="{% static 'img/product/img5.jpg' %}" alt="">
-                <div class="overlay">
-                </div>
-                <div class="btn-product bg-yellow">
-                  <a href="#">New</a>
-                </div>
-              </div>
-              <div class="product-content">
-                <h3 class="product-title"><a href="ads-details.html">iMac Pro</a></h3>
-                <p>Lorem ipsum dolor sit</p>
-                <span class="price">$ 12.00</span>
-                <div class="meta">
-                  <span class="icon-wrap">
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star"></i>
-                    <i class="lni-star"></i>
-                  </span>
-                  <span class="count-review">
-                    <span>1</span> Reviews
-                  </span>
-                </div>
-                <div class="card-text">
-                  <div class="float-left">
-                    <a href="#"><i class="lni-map-marker"></i> Chicago, US</a>
-                  </div>
-                  <div class="float-right">
-                    <div class="icon">
-                      <i class="lni-heart"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="product-item">
-              <div class="carousel-thumb">
-                <img class="img-fluid" src="{% static 'img/product/img6.jpg' %}" alt="">
-                <div class="overlay">
-                </div>
-              </div>
-              <div class="product-content">
-                <h3 class="product-title"><a href="ads-details.html">6 Bed Room For Rent</a></h3>
-                <p>Lorem ipsum dolor sit</p>
-                <span class="price">$ 79.00</span>
-                <div class="meta">
-                  <span class="icon-wrap">
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star"></i>
-                    <i class="lni-star"></i>
-                  </span>
-                  <span class="count-review">
-                    <span>1</span> Reviews
-                  </span>
-                </div>
-                <div class="card-text">
-                  <div class="float-left">
-                    <a href="#"><i class="lni-map-marker"></i> 53 W 88th St, US</a>
-                  </div>
-                  <div class="float-right">
-                    <div class="icon">
-                      <i class="lni-heart"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="product-item">
-              <div class="carousel-thumb">
-                <img class="img-fluid" src="{% static 'img/product/img7.jpg' %}" alt="">
-                <div class="overlay">
-                </div>
-                <div class="btn-product bg-red">
-                  <a href="#">Discount 30%</a>
-                </div>
-              </div>
-              <div class="product-content">
-                <h3 class="product-title"><a href="ads-details.html">New Basket Ball</a></h3>
-                <p>Lorem ipsum dolor sit</p>
-                <span class="price">$ 39.00</span>
-                <div class="meta">
-                  <span class="icon-wrap">
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star"></i>
-                    <i class="lni-star"></i>
-                  </span>
-                  <span class="count-review">
-                    <span>1</span> Reviews
-                  </span>
-                </div>
-                <div class="card-text">
-                  <div class="float-left">
-                    <a href="#"><i class="lni-map-marker"></i> 365 Street, Washington</a>
-                  </div>
-                  <div class="float-right">
-                    <div class="icon">
-                      <i class="lni-heart"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="product-item">
-              <div class="carousel-thumb">
-                <img class="img-fluid" src="{% static 'img/product/img8.jpg' %}" alt="">
-                <div class="overlay">
-                </div>
-              </div>
-              <div class="product-content">
-                <h3 class="product-title"><a href="ads-details.html">Dinning Table</a></h3>
-                <p>Lorem ipsum dolor sit</p>
-                <span class="price">$ 69.00</span>
-                <div class="meta">
-                  <span class="icon-wrap">
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star-filled"></i>
-                    <i class="lni-star"></i>
-                    <i class="lni-star"></i>
-                  </span>
-                  <span class="count-review">
-                    <span>1</span> Reviews
-                  </span>
-                </div>
-                <div class="card-text">
-                  <div class="float-left">
-                    <a href="#"><i class="lni-map-marker"></i> East 7th stree 98</a>
-                  </div>
-                  <div class="float-right">
-                    <div class="icon">
-                      <i class="lni-heart"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
