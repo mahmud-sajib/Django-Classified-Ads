@@ -109,17 +109,17 @@ ul li, ol li {
   display: inline;
   font-size: 115px;
   font-weight: 700;
-  height: 100%;
+  /* height: 100%; */
   left: -173px;
   opacity: 0.1;
   position: absolute;
   top: -14px;
-  width: 100%;
+  /* width: 100%; */
   text-align: center;
 }
 
 .section-title-header p {
-  text: center;
+  text-align: center;
   font-weight: 400;
   line-height: 26px;
   padding-bottom: 36px;
@@ -151,7 +151,7 @@ ul li, ol li {
 
 .section-subcontent {
   font-size: 16px;
-  text: center;
+  text-align: center;
   font-weight: 400;
   line-height: 26px;
   padding-bottom: 36px;
@@ -188,7 +188,7 @@ ul li, ol li {
 .inner-title {
   font-size: 24px;
   font-weight: 700;
-  text-tranform: capitalize;
+  text-transform: capitalize;
 }
 
 .page-tagline {
@@ -651,7 +651,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   color: #666;
   text-decoration: none;
   display: inline-block;
-  float: left;
+  /* float: left; */
   letter-spacing: 0.5px;
   clear: both;
   position: relative;
@@ -1821,7 +1821,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   padding: 30px 0;
   text-align: center;
   width: 100%;
-  webkit-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
   -ms-transition: all 0.5s ease-out;
   -o-transition: all 0.5s ease-out;
@@ -1840,7 +1840,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
-  webkit-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
   -ms-transition: all 0.5s ease-out;
   -o-transition: all 0.5s ease-out;
@@ -1849,7 +1849,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 
 .box .icon i {
   font-size: 40px;
-  webkit-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
   -ms-transition: all 0.5s ease-out;
   -o-transition: all 0.5s ease-out;
@@ -1861,7 +1861,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   font-weight: 500;
   margin: 0;
   color: #484848;
-  webkit-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
   -ms-transition: all 0.5s ease-out;
   -o-transition: all 0.5s ease-out;
@@ -1874,7 +1874,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   font-size: 14px;
   padding: 0 0 10px;
   color: #999;
-  webkit-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
   -ms-transition: all 0.5s ease-out;
   -o-transition: all 0.5s ease-out;
@@ -5003,4 +5003,9 @@ footer .menu li a:hover {
 
 .error-content .description a:hover {
   color: #00BCD4;
+}
+
+/************* Extra CSS ***************/
+.ads-description ul li{
+	list-style: inside !important;
 }

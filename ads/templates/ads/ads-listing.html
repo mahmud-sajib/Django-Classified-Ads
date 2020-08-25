@@ -96,7 +96,7 @@
           <div class="short-name">
             <span>Showing (1 - 12 products of 7371 products)</span>
           </div>
-          <div class="Show-item">
+          <!-- <div class="Show-item">
             <span>Show Items</span>
             <form class="woocommerce-ordering" method="post">
               <label>
@@ -109,166 +109,66 @@
                 </select>
               </label>
             </form>
-          </div>
-          <ul class="nav nav-tabs">
+          </div> -->
+          <!-- <ul class="nav nav-tabs">
             <li class="nav-item">
               <a class="nav-link active" data-toggle="tab" href="#grid-view"><i class="lni-grid"></i></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#list-view"><i class="lni-list"></i></a>
             </li>
-          </ul>
+          </ul> -->
         </div>
         <!-- Product filter End -->
 
         <!-- Adds wrapper Start -->
         <div class="adds-wrapper">
+          
           <div class="tab-content">
-            <div id="grid-view" class="tab-pane fade active show">
+            <div id="list-view" class="tab-pane fade active show">
               <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                {% for ad_listing in ads_listing %}
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                   <div class="featured-box">
                     <figure>
                       <div class="icon">
                         <i class="lni-heart"></i>
                       </div>
-                      <a href="#"><img class="img-fluid" src="{% static 'img/featured/img1.jpg' %}" alt=""></a>
+                      <a href="#"><img class="img-fluid" src="{{ ad_listing.image.url }}" alt=""></a>
                     </figure>
                     <div class="feature-content">
                       <div class="product">
-                        <a href="#"><i class="lni-folder"></i> Mobile Phones</a>
+                        <a href="#"><i class="lni-folder"></i> {{ ad_listing.category }}</a>
                       </div>
-                      <h4><a href="ads-details.html">Apple iPhone X</a></h4>
-                      <span>Last Updated: 3 hours ago</span>
+                      <h4><a href="ads-details.html">{{ ad_listing.title }}</a></h4>
+                      <span>Created {{ ad_listing.date_created }}</span>
                       <ul class="address">
                         <li>
-                          <a href="#"><i class="lni-map-marker"></i> Avenue C, US</a>
+                          <a href="#"><i class="lni-map-marker"></i> {{ ad_listing.city }}, {{ ad_listing.state }}</a>
                         </li>
                         <li>
-                          <a href="#"><i class="lni-alarm-clock"></i> Feb 18, 2018</a>
+                          <a href="#"><i class="lni-alarm-clock"></i> {{ ad_listing.date_created }}</a>
                         </li>
                         <li>
                           <a href="#"><i class="lni-user"></i> Maria Barlow</a>
                         </li>
                         <li>
-                          <a href="#"><i class="lni-package"></i> Used</a>
+                          <a href="#"><i class="lni-package"></i> {{ ad_listing.condition }}</a>
                         </li>
                       </ul>
                       <div class="listing-bottom">
-                        <h3 class="price float-left">$200.00</h3>
+                        <h3 class="price float-left">{{ ad_listing.price }}</h3>
                         <a href="account-myads.html" class="btn-verified float-right"><i class="lni-check-box"></i>
                           Verified Ad</a>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                  <div class="featured-box">
-                    <figure>
-                      <div class="icon">
-                        <i class="lni-heart"></i>
-                      </div>
-                      <a href="#"><img class="img-fluid" src="{% static 'img/featured/img2.jpg' %}" alt=""></a>
-                    </figure>
-                    <div class="feature-content">
-                      <div class="product">
-                        <a href="#"><i class="lni-folder"></i> Real Estate</a>
-                      </div>
-                      <h4><a href="ads-details.html">Amazing Room for Rent</a></h4>
-                      <span>Last Updated: 4 hours ago</span>
-                      <ul class="address">
-                        <li>
-                          <a href="#"><i class="lni-map-marker"></i> Dallas, Washington</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lni-alarm-clock"></i> Jan 7, 2018</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lni-user"></i> John Smith</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lni-package"></i> Used</a>
-                        </li>
-                      </ul>
-                      <div class="listing-bottom">
-                        <h3 class="price float-left">$450.00</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                  <div class="featured-box">
-                    <figure>
-                      <div class="icon">
-                        <i class="lni-heart"></i>
-                      </div>
-                      <a href="#"><img class="img-fluid" src="{% static 'img/featured/img3.jpg' %}" alt=""></a>
-                    </figure>
-                    <div class="feature-content">
-                      <div class="product">
-                        <a href="#"><i class="lni-folder"></i> Electronics</a>
-                      </div>
-                      <h4><a href="ads-details.html">Canon SX Powershot D-SLR</a></h4>
-                      <span>Last Updated: 4 hours ago</span>
-                      <ul class="address">
-                        <li>
-                          <a href="#"><i class="lni-map-marker"></i> Dallas, Washington</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lni-alarm-clock"></i> Mar 18, 2018</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lni-user"></i> David Givens</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lni-package"></i> Used</a>
-                        </li>
-                      </ul>
-                      <div class="listing-bottom">
-                        <h3 class="price float-left">$700.00</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                  <div class="featured-box">
-                    <figure>
-                      <div class="icon">
-                        <i class="lni-heart"></i>
-                      </div>
-                      <a href="#"><img class="img-fluid" src="{% static 'img/featured/img4.jpg' %}" alt=""></a>
-                    </figure>
-                    <div class="feature-content">
-                      <div class="product">
-                        <a href="#"><i class="lni-folder"></i> Vehicles</a>
-                      </div>
-                      <h4><a href="ads-details.html">BMW 5 Series GT Car</a></h4>
-                      <span>Last Updated: 5 hours ago</span>
-                      <ul class="address">
-                        <li>
-                          <a href="#"><i class="lni-map-marker"></i> Dallas, Washington</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lni-alarm-clock"></i> Dec 18, 2018</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lni-user"></i> Elon Musk</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lni-package"></i> N/A</a>
-                        </li>
-                      </ul>
-                      <div class="listing-bottom">
-                        <h3 class="price float-left">$300.00</h3>
-                        <a href="account-myads.html" class="btn-verified float-right"><i class="lni-check-box"></i>
-                          Verified Ad</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {% endfor %}
+                
               </div>
             </div>
-            <div id="list-view" class="tab-pane fade">
+            <!-- <div id="list-view" class="tab-pane fade">
               <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                   <div class="featured-box">
@@ -306,113 +206,11 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <div class="featured-box">
-                    <figure>
-                      <div class="icon">
-                        <i class="lni-heart"></i>
-                      </div>
-                      <a href="#"><img class="img-fluid" src="{% static 'img/featured/img6.jpg' %}" alt=""></a>
-                    </figure>
-                    <div class="feature-content">
-                      <div class="product">
-                        <a href="#"><i class="lni-folder"></i> Restaurant</a>
-                      </div>
-                      <h4><a href="ads-details.html">Cream Restaurant</a></h4>
-                      <span>Last Updated: 4 hours ago</span>
-                      <ul class="address">
-                        <li>
-                          <a href="#"><i class="lni-map-marker"></i> Dallas, Washington</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lni-alarm-clock"></i> Feb 18, 2018</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lni-user"></i> Samuel Palmer</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lni-package"></i> Brand New</a>
-                        </li>
-                      </ul>
-                      <div class="listing-bottom">
-                        <h3 class="price float-left">$250.00</h3>
-                        <a href="account-myads.html" class="btn-verified float-right"><i class="lni-check-box"></i>
-                          Verified Ad</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <div class="featured-box">
-                    <figure>
-                      <div class="icon">
-                        <i class="lni-heart"></i>
-                      </div>
-                      <a href="#"><img class="img-fluid" src="{% static 'img/featured/img3.jpg' %}" alt=""></a>
-                    </figure>
-                    <div class="feature-content">
-                      <div class="product">
-                        <a href="#"><i class="lni-folder"></i> Electronics</a>
-                      </div>
-                      <h4><a href="ads-details.html">Canon SX Powershot D-SLR</a></h4>
-                      <span>Last Updated: 4 hours ago</span>
-                      <ul class="address">
-                        <li>
-                          <a href="#"><i class="lni-map-marker"></i> Dallas, Washington</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lni-alarm-clock"></i> Mar 18, 2018</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lni-user"></i> David Givens</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lni-package"></i> Used</a>
-                        </li>
-                      </ul>
-                      <div class="listing-bottom">
-                        <h3 class="price float-left">$700.00</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <div class="featured-box">
-                    <figure>
-                      <div class="icon">
-                        <i class="lni-heart"></i>
-                      </div>
-                      <a href="#"><img class="img-fluid" src="{% static 'img/featured/img2.jpg' %}" alt=""></a>
-                    </figure>
-                    <div class="feature-content">
-                      <div class="product">
-                        <a href="#"><i class="lni-folder"></i> Real Estate</a>
-                      </div>
-                      <h4><a href="ads-details.html">Amazing Room for Rent</a></h4>
-                      <span>Last Updated: 4 hours ago</span>
-                      <ul class="address">
-                        <li>
-                          <a href="#"><i class="lni-map-marker"></i> Dallas, Washington</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lni-alarm-clock"></i> Jan 7, 2018</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lni-user"></i> John Smith</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lni-package"></i> Used</a>
-                        </li>
-                      </ul>
-                      <div class="listing-bottom">
-                        <h3 class="price float-left">$450.00</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                
               </div>
-            </div>
+            </div> -->
           </div>
+          
         </div>
         <!-- Adds wrapper End -->
 

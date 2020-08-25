@@ -69,12 +69,14 @@
       {% for recent_ad in recent_ads %}
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
         <div class="featured-box">
+          {% if recent_ad.image %}
           <figure>
             <div class="icon">
               <i class="lni-heart"></i>
             </div>
             <a href="#"><img class="img-fluid" src="{{ recent_ad.image.url }}" alt=""></a>
           </figure>
+          {% endif %}
           <div class="feature-content">
             <div class="product">
               <a href="#"><i class="lni-folder"></i>{{ recent_ad.category}}</a>
@@ -121,7 +123,9 @@
           <div class="item">
             <div class="product-item">
               <div class="carousel-thumb">
+                {% if featured_ad.image %}
                 <img class="img-fluid" src="{{ featured_ad.image.url }}" alt="">
+                {% endif %}
                 <div class="overlay">
                 </div>
                 <div class="btn-product bg-yellow">
