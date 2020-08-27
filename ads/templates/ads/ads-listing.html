@@ -24,7 +24,7 @@
 <div class="main-container section-padding">
   <div class="container">
     <div class="row">
-      <div class="col-lg-3 col-md-12 col-xs-12 page-sidebar">
+      <div class="col-lg-4 col-md-12 col-xs-12 page-sidebar">
         <aside>
           <!-- Searcg Widget -->
           <div class="widget_search">
@@ -39,46 +39,12 @@
             <h4 class="widget-title">All Categories</h4>
             <ul class="categories-list">
               <li>
-                <a href="#">
-                  <i class="lni-dinner"></i>
-                  Hotel & Travels <span class="category-counter">(5)</span>
+                {% for category in category_listing %}
+                <a href="{% url 'category-archive' category.slug %}">
+                  <i class="lni-folder"></i>
+                  {{ category }} <span class="category-counter">({{ category.total_ads }})</span>
                 </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="lni-control-panel"></i>
-                  Services <span class="category-counter">(8)</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="lni-github"></i>
-                  Pets <span class="category-counter">(2)</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="lni-coffee-cup"></i>
-                  Restaurants <span class="category-counter">(3)</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="lni-home"></i>
-                  Real Estate <span class="category-counter">(4)</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="lni-pencil"></i>
-                  Jobs <span class="category-counter">(5)</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="lni-display"></i>
-                  Electronics <span class="category-counter">(9)</span>
-                </a>
+                {% endfor %}
               </li>
             </ul>
           </div>
@@ -90,7 +56,7 @@
           </div>
         </aside>
       </div>
-      <div class="col-lg-9 col-md-12 col-xs-12 page-content">
+      <div class="col-lg-8 col-md-12 col-xs-12 page-content">
         <!-- Product filter Start -->
         <div class="product-filter">
           <div class="short-name">
@@ -134,20 +100,20 @@
                       <div class="icon">
                         <i class="lni-heart"></i>
                       </div>
-                      <a href="#"><img class="img-fluid" src="{{ ad_listing.image.url }}" alt=""></a>
+                      <a href="{% url 'ads-detail' ad_listing.id %}"><img class="img-fluid" src="{{ ad_listing.image.url }}" alt=""></a>
                     </figure>
                     <div class="feature-content">
                       <div class="product">
-                        <a href="#"><i class="lni-folder"></i> {{ ad_listing.category }}</a>
+                        <a href="{% url 'category-archive' ad_listing.category.slug %}"><i class="lni-folder"></i> {{ ad_listing.category }}</a>
                       </div>
-                      <h4><a href="ads-details.html">{{ ad_listing.title }}</a></h4>
+                      <h4><a href="{% url 'ads-detail' ad_listing.id %}">{{ ad_listing.title }}</a></h4>
                       <span>Created {{ ad_listing.date_created }}</span>
                       <ul class="address">
                         <li>
                           <a href="#"><i class="lni-map-marker"></i> {{ ad_listing.city }}, {{ ad_listing.state }}</a>
                         </li>
                         <li>
-                          <a href="#"><i class="lni-alarm-clock"></i> {{ ad_listing.date_created }}</a>
+                          <a href="#"><i class="lni-alarm-clock"></i> {{ ad_listing.date_created|date }}</a>
                         </li>
                         <li>
                           <a href="#"><i class="lni-user"></i> Maria Barlow</a>

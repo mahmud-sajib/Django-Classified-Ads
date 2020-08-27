@@ -54,7 +54,7 @@
               </div>
               <ul class="advertisement mb-4">
                 <li>
-                <p><strong><i class="lni-folder"></i> Categories:</strong> <a href="#">{{ ads_detail.category }}</a></p>
+                <p><strong><i class="lni-folder"></i> Categories:</strong> <a href="{% url 'category-archive' ads_detail.category.slug %}">{{ ads_detail.category }}</a></p>
                 </li>
                 <li>
                 <p><strong><i class="lni-archive"></i> Condition:</strong> {{ ads_detail.condition }}</p>

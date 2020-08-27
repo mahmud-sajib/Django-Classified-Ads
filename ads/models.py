@@ -1,11 +1,13 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.utils.text import slugify
+from django.urls import reverse
 # Create your models here.
 
 class Ads(models.Model):
 
     STATE = (
-        ('AL', 'Alabama'),
+        ('Al', 'Alabama'),
         ('AK', 'Alaska'),
         ('AZ', 'Arizona'),
         ('AR', 'Arkansas'),
@@ -58,33 +60,6 @@ class Ads(models.Model):
         ('WY', 'Wyoming'),
     )
 
-    CATEGORY = (
-        ('Outfitter Operations (Find a hunt)', 'Outfitter Operations (Find a hunt)'),
-        ('Hunting property for sale', 'Hunting property for sale'),
-        ('Hunting land for lease & leases wanted ', 'Hunting land for lease & leases wanted'),
-        ('Hunting dogs for sale & training', 'Hunting dogs for sale & training'),
-        ('Guide jobs, Ranch manager jobs & camp staff', 'Guide jobs, Ranch manager jobs & camp staff'),
-        ('Hunting vehicles & ATVs for sale', 'Hunting vehicles & ATVs for sale'),
-        ('Breeder bucks & Breeding services', 'Breeder bucks & Breeding services'),
-        ('Exotics for sale & Exotics wanted', 'Exotics for sale & Exotics wanted'),
-        ('Archery', 'Archery'),
-        ('Camouflage & Outerwear', 'Camouflage & Outerwear'),
-        ('Blinds & Stands', 'Blinds & Stands'),
-        ('Feeders', 'Feeders'),
-        ('Waterfowl', 'Waterfowl'),
-        ('Aviation services', 'Aviation services'),
-        ('Footwear', 'Footwear'),
-        ('Property improvements & services', 'Property improvements & services'), 
-        ('Fire arm accessories', 'Fire arm accessories'),
-        ('Game calls', 'Game calls'),
-        ('Traps and Trapping services', 'Traps and Trapping services'),
-        ('Wildlife Biology and Surveying', 'Wildlife Biology and Surveying'),
-        ('Gun safes', 'Gun safes'),
-        ('Merchandise', 'Gun safes'),
-        ('Business for sale', 'Business for sale'),
-        ('Miscellaneous', 'Miscellaneous'),
-    )
-
     CONDITION = (
         ('Excellent', 'Excellent'),
         ('Good', 'Good'),
@@ -98,7 +73,9 @@ class Ads(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     state = models.CharField(max_length=100, choices=STATE)
     city = models.CharField(max_length=100)
-    category = models.CharField(max_length=100, choices=CATEGORY)
+
+    """ models.SET_NULL : Deleting an category will set the category field of ads as NULL """
+    category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True) 
     condition = models.CharField(max_length=100, choices=CONDITION)
     brand = models.CharField(max_length=200)
     image = models.ImageField(upload_to='uploads/%Y/%m/%d', blank=True, null=True) 
@@ -110,6 +87,40 @@ class Ads(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Category(models.Model):
+    category_name = models.CharField(max_length=100)
+    category_image = models.ImageField(upload_to='uploads/category', blank=True)
+    slug = models.SlugField(blank=True, null=True)
+
+    # overriding save method to add slug field from category name if not provided
+    def save(self, *args, **kwargs):
+        if not self.slug and self.category_name:
+            self.slug = slugify(self.category_name)
+        super().save(*args, **kwargs)
+
+    class Meta:
+        verbose_name_plural = "Categories"
+
+    def __str__(self):
+        return self.category_name
+
+
+class AdsImages(models.Model):
+
+    """ models.CASCADE: Deleting an ads will delete the associated images """
+    ads = models.ForeignKey(Ads , on_delete=models.CASCADE) 
+    image = models.ImageField(upload_to='uploads/%Y/%m/%d' , blank=True , null=True)
+
+    def __str__(self):
+        return self.ads.title
+
+    class Meta:
+        verbose_name_plural = 'Classified Images'
+    
+
+
 
     
     

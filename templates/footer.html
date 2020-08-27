@@ -17,30 +17,21 @@
             <div class="widget">
               <h3 class="block-title">Latest Ads</h3>
               <ul class="media-content-list">
+                {% for ad in footer_recent_ads %}
                 <li>
                   <div class="media-left">
-                    <img class="img-fluid" src="{% static 'img/art/img1.jpg' %}" alt="">
+                    <img class="img-fluid" src="{{ ad.image.url }}" alt="">
                     <div class="overlay">
-                      <span class="price">$ 79</span>
+                      <span class="price">{{ ad.price }}</span>
                     </div>
                   </div>
                   <div class="media-body">
-                    <h4 class="post-title"><a href="ads-details.html">Brand New Macbook Pro</a></h4>
-                    <span class="date">12 Jan 2018</span>
+                    <h4 class="post-title"><a href="{% url 'ads-detail' ad.id %}">{{ ad.title }}</a></h4>
+                    <span class="date">{{ ad.date_created|date }}</span>
                   </div>
                 </li>
-                <li>
-                  <div class="media-left">
-                    <img class="img-fluid" src="{% static 'img/art/img2.jpg' %}" alt="">
-                    <div class="overlay">
-                      <span class="price">$ 49</span>
-                    </div>
-                  </div>
-                  <div class="media-body">
-                    <h4 class="post-title"><a href="ads-details.html">Canon Photography Camera</a></h4>
-                    <span class="date">28 Mar 2018</span>
-                  </div>
-                </li>
+                {% endfor %}
+                
               </ul>
             </div>
           </div>
@@ -48,10 +39,11 @@
             <div class="widget">
               <h3 class="block-title">Help & Support</h3>
               <ul class="menu">
-                <li><a href="#">Live Chat</a></li>
+                
                 <li><a href="#">Privacy Policy</a></li>
                 <li><a href="#">Purchase Protection</a></li>
                 <li><a href="#">Support</a></li>
+                <li><a href="#">FAQ</a></li>
                 <li><a href="#">Contact us</a></li>
               </ul>
             </div>

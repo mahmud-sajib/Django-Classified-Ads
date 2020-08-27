@@ -882,7 +882,8 @@ a.back-to-top:hover, a.back-to-top:focus {
 .search-bar .form-group {
   margin: 5px;
   float: left;
-  width: 27.33%;
+  /* width: 27.33%; */
+  width: 40.33%;
   padding: 0 0 0 52px;
   background: #fff;
   border-radius: 50px;

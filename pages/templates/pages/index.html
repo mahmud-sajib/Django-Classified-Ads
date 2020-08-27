@@ -10,47 +10,39 @@
       <div class="col-md-12 col-lg-12 col-xs-12 text-center">
         <div class="contents">
           <h1 class="head-title">Welcome to <span class="year">Hunting Ads</span></h1>
-          <p>Buy And Sell Everything From Used Hunting Vehicles, Firearms, Merchandise <br> Or Search For Hunting Land, Guide Jobs
+          <p>Buy And Sell Everything From Used Hunting Vehicles, Firearms, Merchandise <br> Or Search For Hunting Land,
+            Guide Jobs
             And More</p>
           <div class="search-bar">
             <div class="search-inner">
-              <form class="search-form">
-                <div class="form-group inputwithicon">
+              <form method="GET" class="search-form" action="{% url 'ads-search' %}">
+                <!-- <div class="form-group inputwithicon">
                   <i class="lni-tag"></i>
                   <input type="text" name="customword" class="form-control" placeholder="Enter Product Keyword">
-                </div>
+                </div> -->
                 <div class="form-group inputwithicon">
                   <i class="lni-map-marker"></i>
                   <div class="select">
-                    <select>
-                      <option value="none">Locations</option>
-                      <option value="none">New York</option>
-                      <option value="none">California</option>
-                      <option value="none">Washington</option>
-                      <option value="none">Birmingham</option>
-                      <option value="none">Chicago</option>
-                      <option value="none">Phoenix</option>
+                    <select name="state">
+                      <option selected="true" disabled="disabled">Locations</option>
+                      {% for state in location_search %}
+                      <option value="{{ state }}">{{ state }}</option>
+                      {% endfor %}
                     </select>
                   </div>
                 </div>
                 <div class="form-group inputwithicon">
                   <i class="lni-menu"></i>
                   <div class="select">
-                    <select>
-                      <option value="none">Categories</option>
-                      <option value="none">Jobs</option>
-                      <option value="none">Electronics</option>
-                      <option value="none">Mobile</option>
-                      <option value="none">Training</option>
-                      <option value="none">Pets</option>
-                      <option value="none">Real Estate</option>
-                      <option value="none">Services</option>
-                      <option value="none">Training</option>
-                      <option value="none">Vehicles</option>
+                    <select name="category_name">
+                      <option selected="true" disabled="disabled">Categories</option>
+                      {% for category_name in category_search %}
+                      <option value="{{ category_name }}">{{ category_name }}</option>
+                      {% endfor %}
                     </select>
                   </div>
                 </div>
-                <button class="btn btn-common" type="button"><i class="lni-search"></i> Search Now</button>
+                <button class="btn btn-common" type="submit"><i class="lni-search"></i> Search Now</button>
               </form>
             </div>
           </div>
@@ -60,6 +52,132 @@
   </div>
 </div>
 <!-- Hero Area End -->
+
+<!-- Advertisements Listings Start -->
+<section class="featured-lis section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 wow fadeIn" data-wow-delay="0.5s">
+        <h3 class="section-title">Advertisements</h3>
+        <div id="new-products" class="owl-carousel">
+          {% for featured_ad in featured_ads %}
+          <div class="item">
+            <div class="product-item">
+              <div class="carousel-thumb">
+                {% if featured_ad.image %}
+                <img class="img-fluid" src="{{ featured_ad.image.url }}" alt="">
+                {% endif %}
+                <div class="overlay">
+                </div>
+                <!-- <div class="btn-product bg-yellow">
+                  <a href="#">{{ featured_ad.condition }}</a>
+                </div> -->
+              </div>
+              <!-- <div class="product-content">
+                <h3 class="product-title"><a href="ads-details.html">{{ featured_ad.title }}</a></h3>
+                <p>{{ featured_ad.description | safe | truncatewords:20 }}</p>
+                <span class="price">{{ featured_ad.price }}</span>
+                <div class="card-text">
+                  <div class="float-left">
+                    <a href="#"><i class="lni-map-marker"></i>{{ featured_ad.city }}, {{ featured_ad.state }}</a>
+                  </div>
+                  <div class="float-right">
+                    <div class="icon">
+                      <i class="lni-heart"></i>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Advertisements Listings End -->
+
+<!-- Featured Ads Listings Starts -->
+<section id="featured" class="section-padding">
+  <div class="container">
+    <h1 class="section-title">Featured Classifieds</h1>
+    <div class="row">
+      <div class="col-lg-8 col-md-12 col-xs-12">
+        <!-- Adds wrapper Start -->
+        <div class="adds-wrapper">
+          <div class="tab-content">
+            <div id="list-view" class="tab-pane fade active show">
+              <div class="row">
+                {% for featured_ad in featured_ads %}
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <div class="featured-box">
+                    {% if featured_ad.image %}
+                    <figure>
+                      <div class="icon">
+                        <i class="lni-heart"></i>
+                      </div>
+                      <a href="{% url 'ads-detail' featured_ad.id %}"><img class="img-fluid" src="{{ featured_ad.image.url }}" alt=""></a>
+                    </figure>
+                    {% endif %}
+                    <div class="feature-content">
+                      <div class="product">
+                        <a href="{% url 'category-archive' featured_ad.category.slug %}"><i class="lni-folder"></i> {{ featured_ad.category }}</a>
+                      </div>
+                      <h4><a href="{% url 'ads-detail' featured_ad.id %}">{{ featured_ad.title }}</a></h4>
+                      <span>Created at: {{ featured_ad.date_created }}</span>
+                      <ul class="address">
+                        <li>
+                          <a href="#"><i class="lni-map-marker"></i>{{ featured_ad.city }}, {{ featured_ad.state }}</a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="lni-alarm-clock"></i> {{ featured_ad.date_created|date }}</a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="lni-user"></i> Will Ernest</a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="lni-package"></i> {{ featured_ad.condition }}</a>
+                        </li>
+                      </ul>
+                      <div class="listing-bottom">
+                        <h3 class="price float-left">{{ featured_ad.price }}</h3>
+                        <a href="#" class="btn-verified float-right"><i class="lni-check-box"></i>
+                          Verified Ad</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Adds wrapper End -->
+      </div>
+      <div class="col-lg-4 col-md-12 col-xs-12">
+        <div class="futere-ad-widget">
+          <img src="{% static 'img/ctl-img.jpg' %}" alt="">
+          <div class="ctl-content-wrapper">
+            <div class="ctl-content">
+              <h3>Advertisement Banner</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="futere-ad-widget">
+          <img src="{% static 'img/ctl-img.jpg' %}" alt="">
+          <div class="ctl-content-wrapper">
+            <div class="ctl-content">
+              <h3>Advertisement Banner</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Featured Ads Listings Ends -->
 
 <!-- Latest Ads Listing Section Start -->
 <section class="featured section-padding">
@@ -74,14 +192,14 @@
             <div class="icon">
               <i class="lni-heart"></i>
             </div>
-            <a href="#"><img class="img-fluid" src="{{ recent_ad.image.url }}" alt=""></a>
+            <a href="{% url 'ads-detail' recent_ad.id %}"><img class="img-fluid" src="{{ recent_ad.image.url }}" alt=""></a>
           </figure>
           {% endif %}
           <div class="feature-content">
             <div class="product">
-              <a href="#"><i class="lni-folder"></i>{{ recent_ad.category}}</a>
+              <a href="{% url 'category-archive' recent_ad.category.slug %}"><i class="lni-folder"></i>{{ recent_ad.category }}</a>
             </div>
-            <h4><a href="ads-details.html">{{ recent_ad.title}}</a></h4>
+            <h4><a href="{% url 'ads-detail' recent_ad.id %}">{{ recent_ad.title}}</a></h4>
             <span>Created: {{ recent_ad.date_created}}</span>
             <ul class="address">
               <li>
@@ -99,62 +217,17 @@
             </ul>
             <div class="listing-bottom">
               <h3 class="price float-left">{{ recent_ad.price }}</h3>
-              <a href="account-myads.html" class="btn-verified float-right"><i class="lni-check-box"></i> Verified
+              <a href="#" class="btn-verified float-right"><i class="lni-check-box"></i> Verified
                 Ad</a>
             </div>
           </div>
         </div>
       </div>
       {% endfor %}
-      
+
     </div>
   </div>
 </section>
 <!-- Latest Ads Listing Section End -->
-
-<!-- Featured Ads Listings Start -->
-<section class="featured-lis section-padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 wow fadeIn" data-wow-delay="0.5s">
-        <h3 class="section-title">Featured Classifieds</h3>
-        <div id="new-products" class="owl-carousel">
-          {% for featured_ad in featured_ads %}
-          <div class="item">
-            <div class="product-item">
-              <div class="carousel-thumb">
-                {% if featured_ad.image %}
-                <img class="img-fluid" src="{{ featured_ad.image.url }}" alt="">
-                {% endif %}
-                <div class="overlay">
-                </div>
-                <div class="btn-product bg-yellow">
-                  <a href="#">{{ featured_ad.condition }}</a>
-                </div>
-              </div>
-              <div class="product-content">
-                <h3 class="product-title"><a href="ads-details.html">{{ featured_ad.title }}</a></h3>
-                <p>{{ featured_ad.description | safe | truncatewords:20 }}</p>
-                <span class="price">{{ featured_ad.price }}</span>
-                <div class="card-text">
-                  <div class="float-left">
-                    <a href="#"><i class="lni-map-marker"></i>{{ featured_ad.city }}, {{ featured_ad.state }}</a>
-                  </div>
-                  <div class="float-right">
-                    <div class="icon">
-                      <i class="lni-heart"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Featured Listings End -->
 
 {% endblock content %}

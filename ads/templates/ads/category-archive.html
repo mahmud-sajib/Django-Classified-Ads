@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Category Archive Section Start -->
+<section class="featured section-padding">
+  <div class="container">
+    <h1 class="section-title">{{ category.category_name }} Classifieds</h1>
+    <div class="row">
+      {% for ads in ads_by_category %}
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+        <div class="featured-box">
+          {% if ads.image %}
+          <figure>
+            <div class="icon">
+              <i class="lni-heart"></i>
+            </div>
+            <a href="{% url 'ads-detail' ads.id %}"><img class="img-fluid" src="{{ ads.image.url }}" alt=""></a>
+          </figure>
+          {% endif %}
+          <div class="feature-content">
+            <h4><a href="{% url 'ads-detail' ads.id %}">{{ ads.title}}</a></h4>
+            <span>Created: {{ ads.date_created}}</span>
+            <ul class="address">
+              <li>
+                <a href="#"><i class="lni-map-marker"></i>{{ ads.state}}</a>
+              </li>
+              <li>
+                <a href="#"><i class="lni-alarm-clock"></i>{{ ads.date_created | date}}</a>
+              </li>
+              <li>
+                <a href="#"><i class="lni-user"></i> Maria Barlow</a>
+              </li>
+              <li>
+                <a href="#"><i class="lni-package"></i>{{ ads.condition }}</a>
+              </li>
+            </ul>
+            <div class="listing-bottom">
+              <h3 class="price float-left">{{ ads.price }}</h3>
+              <a href="#" class="btn-verified float-right"><i class="lni-check-box"></i> Verified
+                Ad</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      
+    </div>
+  </div>
+</section>
+<!-- Category Archive Section End -->
+
+
+{% endblock content %}
