@@ -138,4 +138,5 @@ dmypy.json
 cython_debug/
 .vscode
 TODO
-PROJECT_SPEC.md
+SPEC.md
+SQL.md
