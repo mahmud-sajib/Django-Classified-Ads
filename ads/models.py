@@ -110,7 +110,7 @@ class Category(models.Model):
 class AdsImages(models.Model):
 
     """ models.CASCADE: Deleting an ads will delete the associated images """
-    ads = models.ForeignKey(Ads , on_delete=models.CASCADE) 
+    ads = models.ForeignKey(Ads, on_delete=models.CASCADE) 
     image = models.ImageField(upload_to='uploads/%Y/%m/%d' , blank=True , null=True)
 
     def __str__(self):

@@ -3,9 +3,11 @@ from .models import Ads, Category
 from django.db.models import Count
 # Create your views here.
 
+# Post ads view
 def post_ads(request):
     return render(request, 'ads/post-ads.html')
 
+# Ads listing view
 def ads_listing(request):
     ads_listing = Ads.objects.all()
     category_listing = Category.objects.annotate(total_ads=Count('ads')) 
@@ -17,6 +19,7 @@ def ads_listing(request):
 
     return render(request, 'ads/ads-listing.html', context)
 
+# Ads detail view
 def ads_detail(request, pk):
     ads_detail = get_object_or_404(Ads, pk=pk)
 
@@ -26,7 +29,7 @@ def ads_detail(request, pk):
 
     return render(request, 'ads/ads-detail.html', context)
 
-
+# Ads category archive view
 def ads_category_archive(request, slug):
     category = get_object_or_404(Category, slug=slug)
     ads_by_category = Ads.objects.filter(category=category)
@@ -38,9 +41,10 @@ def ads_category_archive(request, slug):
 
     return render(request, 'ads/category-archive.html', context)
 
+# Ads search view
 def ads_search(request):
     ads_search = Ads.objects.order_by('-date_created')
-    ads_category = Category.objects.order_by('-date_created')
+    ads_category =  Category.objects.order_by('-date_created')
 
     if 'state' in request.GET:
         state = request.GET['state']
@@ -56,7 +60,8 @@ def ads_search(request):
         print(f"CAT {category_name}")
         
         if category_name:
-            ads_category = Category.objects.filter(category_name__icontains=category_name)
+            ads_category =  ads_category.filter(category_name__icontains=category_name)
+            print(f"fetch {category_name}")
 
     context = {
         'ads_search' : ads_search,
