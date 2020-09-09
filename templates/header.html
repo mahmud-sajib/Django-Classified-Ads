@@ -44,7 +44,8 @@
                         <span class="lni-menu"></span>
                         <span class="lni-menu"></span>
                     </button>
-                    <a href="{% url 'home' %}" class="navbar-brand"><img src="{% static 'img/site-logo.png' %}" alt=""></a>
+                    <a href="{% url 'home' %}" class="navbar-brand"><img src="{% static 'img/site-logo.png' %}"
+                            alt=""></a>
                 </div>
                 <div class="collapse navbar-collapse" id="main-navbar">
                     <ul class="navbar-nav mr-auto">
@@ -60,7 +61,7 @@
                                 Ads Listing
                             </a>
                         </li>
-                        
+
 
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'faq' %}">
@@ -77,6 +78,28 @@
 
                     <ul class="sign-in">
                         <li class="nav-item dropdown">
+                            {% if request.user.is_authenticated %}
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"><i class="lni-user"></i> {{ request.user }}</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{% url 'logout' %}"><i class="lni-enter"></i>
+                                    Logout</a>
+                                <!-- <a class="dropdown-item" href="{% url 'dashboard' %}"><i class="lni-dashboard"></i>
+                                    Dashboard</a>
+
+                                <a class="dropdown-item" href="{% url 'profile-settings' %}"><i class="lni-cog"></i>
+                                    Account Settings</a>
+                                <a class="dropdown-item" href="{% url 'profile-ads' %}"><i class="lni-wallet"></i> My
+                                    Ads</a>
+                                <a class="dropdown-item" href="{% url 'profile-favorite-ads' %}"><i
+                                        class="lni-heart"></i>
+                                    Favourite ads</a>
+
+                                <a class="dropdown-item" href="{% url 'profile-close' %}"><i
+                                        class="lni-close"></i>Account
+                                    close</a> -->
+                            </div>
+                            {% else %}
                             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false"><i class="lni-user"></i> My Account</a>
                             <div class="dropdown-menu">
@@ -84,25 +107,15 @@
                                     Signup</a>
                                 <a class="dropdown-item" href="{% url 'login' %}"><i class="lni-lock"></i>
                                     Login</a>
-
-                                <a class="dropdown-item" href="{% url 'dashboard' %}"><i class="lni-dashboard"></i> Dashboard</a>
-
-                                <a class="dropdown-item" href="{% url 'profile-settings' %}"><i class="lni-cog"></i>
-                                    Account Settings</a>
-                                <a class="dropdown-item" href="{% url 'profile-ads' %}"><i class="lni-wallet"></i> My Ads</a>
-                                <a class="dropdown-item" href="{% url 'profile-favorite-ads' %}"><i class="lni-heart"></i>
-                                    Favourite ads</a>
-                                
-                                <a class="dropdown-item" href="{% url 'profile-close' %}"><i class="lni-close"></i>Account
-                                    close</a>
                             </div>
+                            {% endif %}
                         </li>
                     </ul>
 
-                    <a class="tg-btn" href="{% url 'post-ads' %}">
+                    <!-- <a class="tg-btn" href="{% url 'post-ads' %}">
                         <i class="lni-pencil-alt"></i> Post An Ad
-                    </a>
-                    
+                    </a> -->
+
                 </div>
             </div>
 
@@ -123,13 +136,13 @@
                 </li>
                 <li>
                     <a href="{% url 'faq' %}">FAQ</a>
-                    
+
                 </li>
 
                 <li>
                     <a href="{% url 'contact' %}">Contact Us</a>
                 </li>
-                
+
                 <li>
                     <a>My Account</a>
                     <ul class="dropdown">
@@ -141,7 +154,7 @@
                         <li><a href="{% url 'profile-favorite-ads' %}"><i class="lni-heart"></i> Favourite ads</a></li>
                         <li><a href="{% url 'profile-close' %}"><i class="lni-close"></i>Account close</a></li>
                     </ul>
-                </li> -->
+                </li>
                 <li>
                     <a href="{% url 'post-ads' %}" class="tg-btn"><i class="lni-pencil-alt"></i> Post An Ad</a>
                 </li>

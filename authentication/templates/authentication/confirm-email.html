@@ -1,0 +1,7 @@
+{% autoescape off %}
+Hi {{ user.username }},
+Thanks for your registration with HuntingAds.
+Please click on the link below to confirm your registration.
+http://{{ domain }}{% url 'activate' uid=uid token=token %}
+If you think, it's not you, then just ignore this email.
+{% endautoescape %}

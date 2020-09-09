@@ -164,3 +164,11 @@ CKEDITOR_CONFIGS = {
 }
 
 django_heroku.settings(locals())
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  
+# MAILER_EMAIL_BACKEND = EMAIL_BACKEND
+EMAIL_USE_TLS = True  
+EMAIL_HOST = 'smtp.gmail.com'  
+EMAIL_HOST_USER = 'sajibforest@gmail.com'  
+EMAIL_HOST_PASSWORD = 'kbaxfuwsopktgwhu'
+EMAIL_PORT = 587

@@ -4239,7 +4239,6 @@ blockquote {
   font-size: 14px;
   box-shadow: none;
   color: #848484;
-  text-transform: capitalize;
   background: #ffffff;
   padding: 7px 19px;
   border: 1px solid #e5e5e5;
@@ -4291,10 +4290,11 @@ textarea {
   left: 16px;
   color: #999;
   line-height: 22px;
-  margin-top: -11px;
+  margin-top: 11px !important;
   position: absolute;
-  top: 50%;
 }
+
+
 
 .login-area .login-form .input-icon input {
   padding-left: 40px;
@@ -4309,15 +4309,28 @@ textarea {
   margin-left: 5px;
 }
 
-.login-area .forgetpassword {
-  float: right;
+.login-area .signup-area{
+  /* display: inline-block; */
+  float: left;
+  font-size: 14px;
+  line-height: 20px;
+  color: #999;
+  width: 70%;
+}
+
+.login-area .forgetpassword-area {
   font-size: 14px;
   line-height: 20px;
   color: #999;
 }
 
-.login-area .forgetpassword:hover {
-  color: #00BCD4;
+.login-area .forgetpassword-link, .login-area .signup-link{
+  color: #999;
+  text-decoration: underline;
+}
+
+.login-area .forgetpassword-link:hover, .login-area .signup-link:hover{
+  color: #007bff;
 }
 
 .login-area .form-links a {
@@ -5013,3 +5026,8 @@ footer .menu li a:hover {
 /* .ads-description ul li{
 	list-style: inside !important;
 } */
+
+ul.errorlist li, .error-text{
+  font-size: 12px;
+  color: red;
+}
