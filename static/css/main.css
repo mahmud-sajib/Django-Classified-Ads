@@ -5031,3 +5031,38 @@ ul.errorlist li, .error-text{
   font-size: 12px;
   color: red;
 }
+
+#id_state, #id_category, #id_condition{
+  display: block;
+  width: 100%;
+  line-height: 26px;
+  font-size: 14px;
+  box-shadow: none;
+  color: #848484;
+  background: #ffffff;
+  padding: 7px 19px;
+  border: 1px solid #e5e5e5;
+  border-radius: 50px;
+  font-weight: 400;
+  transition: all 500ms ease;
+  -webkit-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+}
+
+.django-ckeditor-widget{
+  display: block;
+  width: 100%;
+  line-height: 26px;
+  font-size: 14px;
+  box-shadow: none;
+  color: #848484;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 50px;
+  font-weight: 400;
+}
+
+.ads-form{
+  width:100%;
+}

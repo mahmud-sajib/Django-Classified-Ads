@@ -2,10 +2,18 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from django.utils.text import slugify
 from django.urls import reverse
+# Default User model
+from django.contrib.auth.models import User
 # Create your models here.
 
-class Ads(models.Model):
 
+class Author(models.Model):
+    user = models.OneToOneField(User, on_delete = models.CASCADE)
+
+    def __str__(self):
+        return self.user.username
+
+class Ads(models.Model):
     STATE = (
         ('Al', 'Alabama'),
         ('AK', 'Alaska'),
@@ -66,20 +74,18 @@ class Ads(models.Model):
         ('Fair', 'Fair'),
     )
 
-
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=200)
     description = RichTextField()
     price = models.DecimalField(max_digits=8, decimal_places=2)
     date_created = models.DateTimeField(auto_now_add=True)
     state = models.CharField(max_length=100, choices=STATE)
     city = models.CharField(max_length=100)
-
-    """ models.SET_NULL : Deleting an category will set the category field of ads as NULL """
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True) 
     condition = models.CharField(max_length=100, choices=CONDITION)
     brand = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='uploads/%Y/%m/%d', blank=True, null=True) 
     phone = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='uploads/%Y/%m/%d', blank=True, null=True) 
     is_featured = models.BooleanField(default=False)
 
     class Meta:

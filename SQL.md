@@ -1,1 +1,0 @@
-```SELECT "ads_ads"."id", "ads_ads"."title", "ads_ads"."description", "ads_ads"."price", "ads_ads"."date_created", "ads_ads"."state", "ads_ads"."city", "ads_ads"."category", "ads_ads"."condition", "ads_ads"."brand", "ads_ads"."image", "ads_ads"."phone", "ads_ads"."is_featured" FROM "ads_ads" WHERE "ads_ads"."is_featured" = True```

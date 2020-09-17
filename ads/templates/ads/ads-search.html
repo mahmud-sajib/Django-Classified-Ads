@@ -7,46 +7,48 @@
   <div class="container">
     <h1 class="section-title">Latest Classifieds</h1>
     <div class="row">
-      {% for ad_search in ads_search %}
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-        <div class="featured-box">
-          {% if ad_search.image %}
-          <figure>
-            <div class="icon">
-              <i class="lni-heart"></i>
-            </div>
-            <a href="#"><img class="img-fluid" src="{{ ad_search.image.url }}" alt=""></a>
-          </figure>
-          {% endif %}
-          <div class="feature-content">
-            <div class="product">
-                <a href="#"><i class="lni-folder"></i>{{ ad_search.category.category_name }}</a>
-            </div>
-            <h4><a href="ads-details.html">{{ ad_search.title }}</a></h4>
-            <span>Created: {{ ad_search.date_created }}</span>
-            <ul class="address">
-              <li>
-                <a href="#"><i class="lni-map-marker"></i>{{ ad_search.state }}</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-alarm-clock"></i>{{ ad_search.date_created | date }}</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-user"></i> Maria Barlow</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-package"></i>{{ ad_search.condition }}</a>
-              </li>
-            </ul>
-            <div class="listing-bottom">
-              <h3 class="price float-left">{{ ad_search.price }}</h3>
-              <a href="account-myads.html" class="btn-verified float-right"><i class="lni-check-box"></i> Verified
-                Ad</a>
+      
+
+        {% for ad_search in ads_search_result %}
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+          <div class="featured-box">
+            {% if ad_search.image %}
+            <figure>
+              <div class="icon">
+                <i class="lni-heart"></i>
+              </div>
+              <a href="#"><img class="img-fluid" src="{{ ad_search.image.url }}" alt=""></a>
+            </figure>
+            {% endif %}
+            <div class="feature-content">
+              <div class="product">
+                  <a href="#"><i class="lni-folder"></i>{{ ad_search.category.category_name }}</a>
+              </div>
+              <h4><a href="ads-details.html">{{ ad_search.title }}</a></h4>
+              <span>Created: {{ ad_search.date_created }}</span>
+              <ul class="address">
+                <li>
+                  <a href="#"><i class="lni-map-marker"></i>{{ ad_search.state }}</a>
+                </li>
+                <li>
+                  <a href="#"><i class="lni-alarm-clock"></i>{{ ad_search.date_created | date }}</a>
+                </li>
+                <li>
+                  <a href="#"><i class="lni-user"></i> Maria Barlow</a>
+                </li>
+                <li>
+                  <a href="#"><i class="lni-package"></i>{{ ad_search.condition }}</a>
+                </li>
+              </ul>
+              <div class="listing-bottom">
+                <h3 class="price float-left">{{ ad_search.price }}</h3>
+                <a href="account-myads.html" class="btn-verified float-right"><i class="lni-check-box"></i> Verified
+                  Ad</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      {% endfor %}
+        {% endfor %}
       
     </div>
   </div>

@@ -1,11 +1,48 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Ads, Category
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import *
 from django.db.models import Count
+# Model Forms.
+from .forms import PostAdsForm
 # Create your views here.
+
+
+def get_author(user):
+    qs = Author.objects.filter(user=user)
+    if qs.exists():
+        return qs[0]
+    return None
 
 # Post ads view
 def post_ads(request):
-    return render(request, 'ads/post-ads.html')
+    # User Post form.
+    form = PostAdsForm(request.POST or None, request.FILES or None)
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.instance.author = get_author(request.user)
+            form.save()
+            # title = request.POST.get('title')
+            # description = request.POST.get('description')
+            # price = request.POST.get('price')
+            # state = request.POST.get('state')
+            # city = request.POST.get('city')
+            # category = request.POST.get('category')
+            # condition = request.POST.get('condition')
+            # brand = request.POST.get('brand')
+            # image = request.POST.get('image')
+            # phone = request.POST.get('phone')
+
+            # ads = Ads.objects.create(author=request.user.author, title=title, description=description, price=price, state=state, city=city, category=category, condition=condition, brand=brand, image=image, phone=phone)
+            
+            # ads.save()
+            
+            return redirect('home')
+    else:
+        form = PostAdsForm(request.POST or None, request.FILES or None)
+
+    context = {'form': form}
+   
+    return render(request, 'ads/post-ads.html', context)
 
 # Ads listing view
 def ads_listing(request):
@@ -41,31 +78,16 @@ def ads_category_archive(request, slug):
 
     return render(request, 'ads/category-archive.html', context)
 
-# Ads search view
+# Ads search/filter view
 def ads_search(request):
-    ads_search = Ads.objects.order_by('-date_created')
-    ads_category =  Category.objects.order_by('-date_created')
 
-    if 'state' in request.GET:
-        state = request.GET['state']
-        
-        print(f"LOCATION {state}")
-        
-        if state:
-            ads_search = ads_search.filter(state__iexact=state)
+    state = request.GET.get('state')
+    category = request.GET.get('category_name')
+
+    ads_search_result = Ads.objects.filter(state=state).filter(category__category_name=category)
     
-    if 'category_name' in request.GET:
-        category_name = request.GET['category_name']
-        
-        print(f"CAT {category_name}")
-        
-        if category_name:
-            ads_category =  ads_category.filter(category_name__icontains=category_name)
-            print(f"fetch {category_name}")
-
     context = {
-        'ads_search' : ads_search,
-        'ads_category' : ads_category
+        'ads_search_result':ads_search_result
     }
 
     return render(request, 'ads/ads-search.html', context)
