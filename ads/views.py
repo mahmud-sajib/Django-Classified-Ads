@@ -59,9 +59,11 @@ def ads_listing(request):
 # Ads detail view
 def ads_detail(request, pk):
     ads_detail = get_object_or_404(Ads, pk=pk)
+    ads_photos = AdsImages.objects.filter(ads=ads_detail)
 
     context = {
         'ads_detail' : ads_detail,
+        'ads_photos' : ads_photos,
     }
 
     return render(request, 'ads/ads-detail.html', context)

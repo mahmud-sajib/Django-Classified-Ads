@@ -85,7 +85,7 @@ class Ads(models.Model):
     condition = models.CharField(max_length=100, choices=CONDITION)
     brand = models.CharField(max_length=200)
     phone = models.CharField(max_length=50)
-    image = models.ImageField(upload_to='uploads/%Y/%m/%d', blank=True, null=True) 
+    # image = models.ImageField(blank=True, null=True) 
     is_featured = models.BooleanField(default=False)
 
     class Meta:
@@ -117,13 +117,13 @@ class AdsImages(models.Model):
 
     """ models.CASCADE: Deleting an ads will delete the associated images """
     ads = models.ForeignKey(Ads, on_delete=models.CASCADE) 
-    image = models.ImageField(upload_to='uploads/%Y/%m/%d' , blank=True , null=True)
+    image = models.ImageField(upload_to='uploads/%Y/%m/%d', default=None)
 
     def __str__(self):
         return self.ads.title
 
     class Meta:
-        verbose_name_plural = 'Classified Images'
+        verbose_name_plural = 'Classified Ads Images'
     
 
 

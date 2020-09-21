@@ -2,72 +2,94 @@
 {% load static %}
 {% block content %}
 <!-- Page Header Start -->
-    <div class="page-header" style="background: url('img/banner1.jpg');">
-      
-      <div class="container">
-        <div class="row">         
-          <div class="col-md-12">
-            <div class="breadcrumb-wrapper">
-              <h2 class="product-title">{{ ads_detail.title }} Details</h2>
-              <ol class="breadcrumb">
-                <li><a href="#">Home /</a></li>
-                <li class="current">Details</li>
-              </ol>
+<div class="page-header" style="background: url('img/banner1.jpg');">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="breadcrumb-wrapper">
+          <h2 class="product-title">{{ ads_detail.title }} Details</h2>
+          <ol class="breadcrumb">
+            <li><a href="#">Home /</a></li>
+            <li class="current">Details</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Ads Details Start -->
+<div class="section-padding">
+  <div class="container">
+
+    <!-- Product Info Start -->
+    <div class="product-info row">
+      <div class="col-lg-7 col-md-12 col-xs-12">
+        <div class="details-box ads-details-wrapper">
+          <div id="owl-demo" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
+            <div class="owl-wrapper-outer">
+              <div class="owl-wrapper"
+                style="width: 3810px; left: 0px; display: block; transition: all 300ms ease 0s; transform: translate3d(0px, 0px, 0px);">
+                {% for photo in ads_photos %}
+                <div class="owl-item" style="width: 635px;">
+                  <div class="item">
+                    <div class="product-img">
+                      <img class="img-fluid" src="{{ photo.image.url }}" alt="">
+                    </div>
+                    <span class="price">$1,550</span>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+
+
+            <div class="owl-controls clickable">
+              <div class="owl-pagination"><a href="#prev" class="prev-owl"></a>
+                {% for photo in ads_photos %}
+                <div class="owl-page active"><span class=""></span>
+                  <a class="item-link"
+                    style="background-image: url('{{ photo.image.url }}')">
+                  </a>
+                </div>
+                {% endfor %}
+                <a href="#next" class="next-owl"></a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Page Header End -->  
-
-    <!-- Ads Details Start -->
-    <div class="section-padding">
-      <div class="container">
+      <div class="col-lg-5 col-md-12 col-xs-12">
         
-        <!-- Product Info Start -->
-        <div class="product-info row">
-          <div class="col-lg-7 col-md-12 col-xs-12">
-            <div class="details-box ads-details-wrapper">
-              <div id="owl-demo" class="owl-carousel owl-theme">
-                <div class="item">
-                  {% if ads_detail.image %}
-                  <div class="product-img">
-                    <img class="img-fluid" src="{{ ads_detail.image.url }}" alt="">
-                  </div>
-                  {% endif %}
-                  <span class="price">{{ ads_detail.price }}</span>
-                </div>
-                
-              </div>
+        <div class="details-box">
+          <div class="ads-details-info">
+            <h2>{{ ads_detail.title }}</h2>
+            <div class="mb-2 ads-description">{{ ads_detail.description|safe }}</div>
+            <div class="details-meta">
+              <span><a href="#"><i class="lni-alarm-clock"></i> {{ ads_detail.date_created }}</a></span>
+              <span><a href="#"><i class="lni-map-marker"></i> {{ ads_detail.state }}</a></span>
+              <span><a href="#"><i class="lni-eye"></i> 299 View</a></span>
             </div>
           </div>
-          <div class="col-lg-5 col-md-12 col-xs-12">
-            <div class="details-box">
-              <div class="ads-details-info">
-                <h2>{{ ads_detail.title }}</h2>
-                <div class="mb-2 ads-description">{{ ads_detail.description|safe }}</div>
-                <div class="details-meta">
-                  <span><a href="#"><i class="lni-alarm-clock"></i> {{ ads_detail.date_created }}</a></span>
-                  <span><a href="#"><i class="lni-map-marker"></i>  {{ ads_detail.state }}</a></span>
-                  <span><a href="#"><i class="lni-eye"></i> 299 View</a></span>
-                </div>
-              </div>
-              <ul class="advertisement mb-4">
-                <li>
-                <p><strong><i class="lni-folder"></i> Categories:</strong> <a href="{% url 'category-archive' ads_detail.category.slug %}">{{ ads_detail.category }}</a></p>
-                </li>
-                <li>
-                <p><strong><i class="lni-archive"></i> Condition:</strong> {{ ads_detail.condition }}</p>
-                </li>
-                <li>
-                <p><strong><i class="lni-package"></i> Brand:</strong> <a href="#">{{ ads_detail.brand }}</a></p>
-                </li>
-              </ul>
-              <div class="ads-btn mb-4">
-                <a href="#" class="btn btn-common btn-reply"><i class="lni-envelope"></i> Email</a>
-                <a href="#" class="btn btn-common"><i class="lni-phone-handset"></i> 01154256643</a>
-              </div>
-              <!-- <div class="share">
+          <ul class="advertisement mb-4">
+            <li>
+              <p><strong><i class="lni-folder"></i> Categories:</strong> <a
+                  href="{% url 'category-archive' ads_detail.category.slug %}">{{ ads_detail.category }}</a></p>
+            </li>
+            <li>
+              <p><strong><i class="lni-archive"></i> Condition:</strong> {{ ads_detail.condition }}</p>
+            </li>
+            <li>
+              <p><strong><i class="lni-package"></i> Brand:</strong> <a href="#">{{ ads_detail.brand }}</a></p>
+            </li>
+          </ul>
+          <div class="ads-btn mb-4">
+            <a href="#" class="btn btn-common btn-reply"><i class="lni-envelope"></i> Email</a>
+            <a href="#" class="btn btn-common"><i class="lni-phone-handset"></i> 01154256643</a>
+          </div>
+          <!-- <div class="share">
                 <span>Share: </span>
                 <div class="social-link">  
                   <a class="facebook" href="#"><i class="lni-facebook-filled"></i></a>
@@ -76,13 +98,13 @@
                   <a class="google" href="#"><i class="lni-google-plus"></i></a>
                 </div>
               </div> -->
-            </div>
-          </div>
         </div>
-        <!-- Product Info End -->
+      </div>
+    </div>
+    <!-- Product Info End -->
 
-        <!-- Product Description Start -->
-        <!-- <div class="description-info">
+    <!-- Product Description Start -->
+    <!-- <div class="description-info">
           <div class="row">
             <div class="col-lg-8 col-md-6 col-xs-12">
               <div class="description">
@@ -104,10 +126,10 @@
             </div>
           </div>
         </div> -->
-        <!-- Product Description End -->
-        
-      </div>    
-    </div>
-    <!-- Ads Details End -->
+    <!-- Product Description End -->
+
+  </div>
+</div>
+<!-- Ads Details End -->
 
 {% endblock content %}
