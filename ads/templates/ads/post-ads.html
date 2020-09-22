@@ -2,8 +2,10 @@
 {% load static %}
 {% block content %}
 
+
+
 <!-- Page Header Start -->
-<div class="page-header" style="background: url({% static 'img/banner1.jpg' %});">
+<div class="page-header" style="background: url('img/banner1.jpg');">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -27,20 +29,176 @@
       
       <div class="col-lg-5 col-md-12 col-xs-12">
         {% if request.user.is_authenticated %}
-        <div class="row page-content">
-          <form method="POST" action="" enctype="multipart/form-data" role="form" class="ads-form">
-            {% csrf_token %}
-            {{ form.media }}
-            {{ form }}
-            <div class="text-center">
-              <button type="submit" class="btn btn-common log-btn">Post Ads</button>
-            </div>
-          </form>
+        <div class="row page-content">          
+          <input type="text" id="title" class="form-control ad-post-form" placeholder="Product Ad Title">
+            
+          <textarea id="description" class="form-control ad-post-form" placeholder="Product Ad Description"></textarea>
+          <div class="select ad-post-form">
+            <select id="category" name="category" class="form-control">
+                <option selected="true" disabled="disabled">Select Product Category</option>
+                <option value="Archery">Archery</option>
+                <option value="Aviation services">Aviation services</option>
+                <option value="Blinds & Stands">Blinds & Stands</option>
+                <option value="Breeder bucks & Breeding services">Breeder bucks & Breeding services</option>
+                <option value="Business for sale">Business for sale</option>
+                <option value="Camouflage & Outerwear">Camouflage & Outerwear</option>
+                <option value="Exotics for sale & Exotics wanted">Exotics for sale & Exotics wanted</option>
+                <option value="Feeders">Feeders</option>
+                <option value="Fire arm accessories">Fire arm accessories</option>
+                <option value="Footwear">Footwear</option>
+                <option value="Game calls">Game calls</option>
+                <option value="Guide jobs, Ranch manager jobs & camp staff">Guide jobs, Ranch manager jobs & camp staff</option>
+                <option value="Gun safes">Gun safes</option>
+                <option value="Hunting dogs for sale & training">Hunting dogs for sale & training</option>
+                <option value="Hunting land for lease & leases wanted">Hunting land for lease & leases wanted</option>
+                <option value="Hunting property for sale">Hunting property for sale</option>
+                <option value="Hunting vehicles & ATVs for sale">Hunting vehicles & ATVs for sale</option>
+                <option value="Merchandise">Merchandise</option>
+                <option value="Outfitter Operations (Find a hunt)">Outfitter Operations (Find a hunt)</option>
+                <option value="Property improvements & services">Property improvements & services</option>
+                <option value="Traps and Trapping services">Traps and Trapping services</option>
+                <option value="Waterfowl">Waterfowl</option>
+                <option value="Wildlife Biology and Surveying">Wildlife Biology and Surveying</option>
+                <option value="Miscellaneous">Miscellaneous</option>
+            </select>
+          </div>       
+          <input type="number" id="price" class="form-control ad-post-form" placeholder="Product Price">      
+          <div class="select ad-post-form">
+            <select id="condition" name="condition" class="form-control">      
+                <option selected="true" disabled="disabled">Select A Condition</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Good">Good</option>
+                <option value="Fair">Fair</option>   
+            </select>
+          </div>
+          <div class="select ad-post-form">
+            <select id="state" name="state" class="form-control">
+            <option selected="true" disabled="disabled">Select A State</option>
+            <option value="Alabama">Alabama</option>
+            <option value="Alaska">Alaska</option>
+            <option value="Arizona">Arizona</option>
+            <option value="Arkansas">Arkansas</option>
+            <option value="California">California</option>
+            <option value="Colorado">Colorado</option>
+            <option value="Connecticut">Connecticut</option>
+            <option value="Delaware">Delaware</option>
+            <option value="District Of Columbia">District Of Columbia</option>
+            <option value="Florida">Florida</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Hawaii">Hawaii</option> 
+            <option value="Idaho">Idaho</option>
+            <option value="Illinois">Illinois</option>
+            <option value="Indiana">Indiana</option>
+            <option value="Iowa">Iowa</option>
+            <option value="Kansas">Kansas</option>
+            <option value="Kentucky">Kentucky</option>
+            <option value="Louisiana"></option>
+            <option value="Maine">Maine</option>
+            <option value="Maryland">Maryland</option>
+            <option value="Massachusetts">Massachusetts</option>
+            <option value="Michigan">Michigan</option>
+            <option value="Minnesota">Minnesota</option>
+            <option value="Mississippi">Mississippi</option>
+            <option value="Missouri">Missouri</option>
+            <option value="Montana">Montana</option>
+            <option value="Nebraska">Nebraska</option>
+            <option value="Nevada">Nevada</option>
+            <option value="New Hampshire">New Hampshire</option>
+            <option value="New Jersey">New Jersey</option>
+            <option value="New Mexico">New Mexico</option>
+            <option value="New York">New York</option>
+            <option value="North Carolina">North Carolina</option>
+            <option value="North Dakota">North Dakota</option>
+            <option value="Ohio">Ohio</option>
+            <option value="Oklahoma">Oklahoma</option>
+            <option value="Oregon">Oregon</option>
+            <option value="Pennsylvania">Pennsylvania</option>
+            <option value="Rhode Island">Rhode Island</option>
+            <option value="South Carolina">South Carolina</option>
+            <option value="South Dakota">South Dakota</option>
+            <option value="Tennessee">Tennessee</option>
+            <option value="Texas">Texas</option>
+            <option value="Utah">Utah</option>
+            <option value="Vermont">Vermont</option>
+            <option value="Virginia">Virginia</option>
+            <option value="Washington">Washington</option>
+            <option value="West Virginia">West Virginia</option>
+            <option value="Wisconsin">Wisconsin</option>
+            <option value="Wyoming">Wyoming</option>
+            </select>
+          </div>
+          <input type="text" id="city" class="form-control ad-post-form" placeholder="Your city"> 
+          <input type="text" id="brand" class="form-control ad-post-form" placeholder="Product Brand">
+          <input type="text" id="phone" class="form-control ad-post-form" placeholder="Contact no.">      
         </div>
+        <input type="file" multiple>
+        <button type="button" id="saveBtn" class="btn btn-primary mt-4">Post Ad</button>
         {% endif %}
       </div>
     </div>
   </div>
 </div>
 <!-- End Content -->
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+      var files = []
+      const inputElement = document.querySelector('input[type="file"]');
+      const pond = FilePond.create( inputElement, {
+          acceptedFileTypes:['image/png', 'image/jpeg'],
+          onaddfile: (err, fileItem) => {
+              if (!err) {
+              files.push(fileItem.file)
+              }
+              console.log(files)
+          },
+          onremovefile: (err, fileItem) => {
+              const index = files.indexOf(fileItem.file)
+              if (index > -1) {
+                  files.splice(index, 1)
+              }
+              console.log(files)
+          }
+      } );
+
+      var formData = new FormData();
+      $(document).on('click', '#saveBtn', function(e) {
+          formData.append('length', files.length)
+          const title = document.getElementById('title');
+          if(title === '') {
+            alert('The post has been created!')
+          } 
+          formData.append('title', $('#title').val())
+          formData.append('description', $('#description').val())
+          formData.append('category', $('#category').val())
+          formData.append('price', $('#price').val())
+          formData.append('condition', $('#condition').val())
+          formData.append('state', $('#state').val())
+          formData.append('city', $('#city').val())
+          formData.append('brand', $('#brand').val())
+          formData.append('phone', $('#phone').val())
+          for (var i = 0; i < files.length; i++) {
+              formData.append('images' + i, files[i])
+          }
+          formData.append('csrfmiddlewaretoken', '{{ csrf_token }}')
+
+          $.ajax({
+              type: 'POST',
+              url: '{% url "post-ads" %}',
+              data: formData,
+              cache: false,
+              processData: false,
+              contentType: false,
+              enctype: 'multipart/form-data',
+              success: function (){
+                  alert('The post has been created!')
+              },
+              error: function(xhr, errmsg, err) {
+                  console.log(xhr.status + ":" + xhr.responseText)
+              }
+          })
+      })
+  })
+</script>
 {% endblock content %}

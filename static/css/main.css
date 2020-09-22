@@ -5066,3 +5066,9 @@ ul.errorlist li, .error-text{
 .ads-form{
   width:100%;
 }
+
+.ad-post-form{
+  margin: 10px 0;
+  display: block;
+  width: 100%;
+}

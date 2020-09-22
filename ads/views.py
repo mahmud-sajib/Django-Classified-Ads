@@ -3,46 +3,64 @@ from .models import *
 from django.db.models import Count
 # Model Forms.
 from .forms import PostAdsForm
+from django.contrib.auth.forms import User
+from django.contrib.auth.models import User
+
+# importing messages
+from django.contrib import messages
+
+from ads.models import Author
 # Create your views here.
 
 
-def get_author(user):
-    qs = Author.objects.filter(user=user)
-    if qs.exists():
-        return qs[0]
-    return None
+# def get_author(user):
+#     qs = Author.objects.filter(user=user)
+#     if qs.exists():
+#         return qs[0]
+#     return None
 
 # Post ads view
 def post_ads(request):
-    # User Post form.
-    form = PostAdsForm(request.POST or None, request.FILES or None)
-
     if request.method == 'POST':
-        if form.is_valid():
-            form.instance.author = get_author(request.user)
-            form.save()
-            # title = request.POST.get('title')
-            # description = request.POST.get('description')
-            # price = request.POST.get('price')
-            # state = request.POST.get('state')
-            # city = request.POST.get('city')
-            # category = request.POST.get('category')
-            # condition = request.POST.get('condition')
-            # brand = request.POST.get('brand')
-            # image = request.POST.get('image')
-            # phone = request.POST.get('phone')
 
-            # ads = Ads.objects.create(author=request.user.author, title=title, description=description, price=price, state=state, city=city, category=category, condition=condition, brand=brand, image=image, phone=phone)
-            
-            # ads.save()
-            
-            return redirect('home')
-    else:
-        form = PostAdsForm(request.POST or None, request.FILES or None)
+        length = request.POST.get('length')
+        
+        title = request.POST.get('title')
 
-    context = {'form': form}
-   
-    return render(request, 'ads/post-ads.html', context)
+        description = request.POST.get('description')
+
+        category = request.POST.get('category')
+        
+        # c = Category.objects.get_or_create(category_name=category)
+        category_check = Category.objects.filter(category_name=category).exists()
+        print(category_check)
+        
+        if category_check:
+            c = Category.objects.get(category_name=category)
+        else:
+            c = Category.objects.create(category_name=category)
+        
+        # c = Category.objects.create(category_name=category)
+        print(f"CATEGORY:{c}")
+
+        price = request.POST.get('price')
+        condition = request.POST.get('condition')
+        state = request.POST.get('state')
+        city = request.POST.get('city')
+        brand = request.POST.get('brand')
+        phone = request.POST.get('phone')
+
+        ads = Ads.objects.create(author=request.user.author, title=title, description=description, price=price, category=c, condition=condition, state=state, city=city, brand=brand, phone=phone)
+
+        print(f"ADS: {ads}")
+
+        for file_num in range(0, int(length)):
+            AdsImages.objects.create(
+                ads=ads,
+                image=request.FILES.get(f'images{file_num}')
+            )
+        
+    return render(request, 'ads/post-ads.html')
 
 # Ads listing view
 def ads_listing(request):
