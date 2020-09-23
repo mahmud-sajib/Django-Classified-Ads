@@ -5088,3 +5088,11 @@ ul.errorlist li, .error-text{
 .user-info p{
   font-size: 13px;
 }
+
+#video-modal {
+	display: block;
+	margin: 0 auto;
+  margin-top: 15px;
+  text-decoration: underline;
+  color:#89613A !important;
+}

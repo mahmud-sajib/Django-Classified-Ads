@@ -58,40 +58,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 wow fadeIn" data-wow-delay="0.5s">
-        <h3 class="section-title">Advertisements</h3>
-        <div id="new-products" class="owl-carousel">
-          {% for featured_ad in featured_ads %}
-          <div class="item">
-            <div class="product-item">
-              <div class="carousel-thumb">
-                {% if featured_ad.image %}
-                <img class="img-fluid" src="{{ featured_ad.image.url }}" alt="">
-                {% endif %}
-                <div class="overlay">
-                </div>
-                <!-- <div class="btn-product bg-yellow">
-                  <a href="#">{{ featured_ad.condition }}</a>
-                </div> -->
-              </div>
-              <!-- <div class="product-content">
-                <h3 class="product-title"><a href="ads-details.html">{{ featured_ad.title }}</a></h3>
-                <p>{{ featured_ad.description | safe | truncatewords:20 }}</p>
-                <span class="price">{{ featured_ad.price }}</span>
-                <div class="card-text">
-                  <div class="float-left">
-                    <a href="#"><i class="lni-map-marker"></i>{{ featured_ad.city }}, {{ featured_ad.state }}</a>
-                  </div>
-                  <div class="float-right">
-                    <div class="icon">
-                      <i class="lni-heart"></i>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-            </div>
-          </div>
-          {% endfor %}
-        </div>
+        <h3 class="section-title">Advertisement</h3>
+        <img src="{% static 'img/sale.jpg' %}" alt="">
       </div>
     </div>
   </div>
@@ -146,7 +114,7 @@
                         </li>
                       </ul>
                       <div class="listing-bottom">
-                        <h3 class="price float-left">{{ featured_ad.price }}</h3>
+                        <h3 class="price float-left">$ {{ featured_ad.price }}</h3>
                         <a href="#" class="btn-verified float-right"><i class="lni-check-box"></i>
                           Verified Ad</a>
                       </div>
@@ -192,14 +160,20 @@
       {% for recent_ad in recent_ads %}
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
         <div class="featured-box">
-          {% if recent_ad.image %}
+          
           <figure>
             <div class="icon">
               <i class="lni-heart"></i>
             </div>
-            <a href="{% url 'ads-detail' recent_ad.id %}"><img class="img-fluid" src="{{ recent_ad.image.url }}" alt=""></a>
+            <a href="{% url 'ads-detail' recent_ad.id %}">
+              {% for img in recent_ad.adsimages_set.all %}
+              {% if forloop.first %}
+              <img class="img-fluid" src="{{ img.image.url }}" alt="">
+              {% endif %}
+              {% endfor %}
+            </a>
           </figure>
-          {% endif %}
+          
           <div class="feature-content">
             <div class="product">
               <a href="{% url 'category-archive' recent_ad.category.slug %}"><i class="lni-folder"></i>{{ recent_ad.category }}</a>
@@ -221,7 +195,7 @@
               </li>
             </ul>
             <div class="listing-bottom">
-              <h3 class="price float-left">{{ recent_ad.price }}</h3>
+              <h3 class="price float-left">$ {{ recent_ad.price }}</h3>
               <a href="#" class="btn-verified float-right"><i class="lni-check-box"></i> Verified
                 Ad</a>
             </div>

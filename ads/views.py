@@ -49,8 +49,9 @@ def post_ads(request):
         city = request.POST.get('city')
         brand = request.POST.get('brand')
         phone = request.POST.get('phone')
+        video = request.POST.get('video')
 
-        ads = Ads.objects.create(author=request.user.author, title=title, description=description, price=price, category=c, condition=condition, state=state, city=city, brand=brand, phone=phone)
+        ads = Ads.objects.create(author=request.user.author, title=title, description=description, price=price, category=c, condition=condition, state=state, city=city, brand=brand, phone=phone, video=video)
 
         print(f"ADS: {ads}")
 

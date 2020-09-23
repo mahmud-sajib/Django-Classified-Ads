@@ -129,7 +129,8 @@
           </div>
           <input type="text" id="city" class="form-control ad-post-form" placeholder="Your city"> 
           <input type="text" id="brand" class="form-control ad-post-form" placeholder="Product Brand">
-          <input type="text" id="phone" class="form-control ad-post-form" placeholder="Contact no.">      
+          <input type="text" id="phone" class="form-control ad-post-form" placeholder="Contact no.">
+          <input type="url" id="video" class="form-control ad-post-form" placeholder="Post a video link (e.g. https://www.youtube.com/watch?v=ooHvPr4Bk4I)Don't post embed link">      
         </div>
         <input type="file" multiple>
         <button type="button" id="saveBtn" class="btn btn-primary mt-4">Post Ad</button>
@@ -165,10 +166,6 @@
       var formData = new FormData();
       $(document).on('click', '#saveBtn', function(e) {
           formData.append('length', files.length)
-          const title = document.getElementById('title');
-          if(title === '') {
-            alert('The post has been created!')
-          } 
           formData.append('title', $('#title').val())
           formData.append('description', $('#description').val())
           formData.append('category', $('#category').val())
@@ -178,6 +175,7 @@
           formData.append('city', $('#city').val())
           formData.append('brand', $('#brand').val())
           formData.append('phone', $('#phone').val())
+          formData.append('video', $('#video').val())
           for (var i = 0; i < files.length; i++) {
               formData.append('images' + i, files[i])
           }
@@ -199,6 +197,7 @@
               }
           })
       })
+      console.log(formData)
   })
 </script>
 {% endblock content %}

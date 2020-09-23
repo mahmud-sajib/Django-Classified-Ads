@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     # Packages
     'ckeditor',
     'debug_toolbar',
+    'embed_video',
 ]
 
 MIDDLEWARE = [

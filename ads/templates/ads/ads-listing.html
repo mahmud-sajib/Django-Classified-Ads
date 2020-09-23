@@ -100,7 +100,14 @@
                       <div class="icon">
                         <i class="lni-heart"></i>
                       </div>
-                      <a href="{% url 'ads-detail' ad_listing.id %}"><img class="img-fluid" src="{{ ad_listing.image.url }}" alt=""></a>
+                      <a href="{% url 'ads-detail' ad_listing.id %}">
+                        {% for img in ad_listing.adsimages_set.all %}
+                        {% if forloop.first %}
+                        <img class="img-fluid" src="{{ img.image.url }}" alt="">
+                        {% endif %}
+                        {% endfor %}
+                        
+                      </a>
                     </figure>
                     <div class="feature-content">
                       <div class="product">

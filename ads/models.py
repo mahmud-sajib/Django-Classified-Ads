@@ -4,6 +4,8 @@ from django.utils.text import slugify
 from django.urls import reverse
 # Default User model
 from django.contrib.auth.models import User
+
+from embed_video.fields import EmbedVideoField
 # Create your models here.
 
 
@@ -85,7 +87,8 @@ class Ads(models.Model):
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True) 
     condition = models.CharField(max_length=100, choices=CONDITION)
     brand = models.CharField(max_length=200)
-    phone = models.CharField(max_length=50) 
+    phone = models.CharField(max_length=50)
+    video = EmbedVideoField(null=True, blank=True) 
     is_featured = models.BooleanField(default=False)
 
     class Meta:
