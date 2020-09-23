@@ -112,14 +112,19 @@
                 {% for featured_ad in featured_ads %}
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                   <div class="featured-box">
-                    {% if featured_ad.image %}
+                    
                     <figure>
                       <div class="icon">
                         <i class="lni-heart"></i>
                       </div>
-                      <a href="{% url 'ads-detail' featured_ad.id %}"><img class="img-fluid" src="{{ featured_ad.image.url }}" alt=""></a>
+                      {% for img in featured_ad.adsimages_set.all %}
+                        {% if forloop.first %}
+                        <a href="{% url 'ads-detail' featured_ad.id %}"><img class="img-fluid" src="{{ img.image.url }}" alt=""></a>
+                        {% endif %}
+                      {% endfor %}
+                      
                     </figure>
-                    {% endif %}
+                    
                     <div class="feature-content">
                       <div class="product">
                         <a href="{% url 'category-archive' featured_ad.category.slug %}"><i class="lni-folder"></i> {{ featured_ad.category }}</a>

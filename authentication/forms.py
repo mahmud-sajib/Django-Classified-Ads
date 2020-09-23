@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 # importing built-in user model
 from django.contrib.auth.forms import User
 from django import forms
+from ads.models import Author
 
 from django.contrib.auth.forms import PasswordResetForm, SetPasswordForm
 
@@ -88,3 +89,36 @@ class EmailSetPassword(SetPasswordForm):
         'name': 'new_password2', 
         'placeholder': 'Retype Password'
     }))
+
+# Updating the User registration form
+class UserUpdateForm(ModelForm):
+    first_name = forms.CharField(label="First Name", widget=forms.TextInput(attrs={
+        'type': 'text',
+        'class': 'form-control',  
+        'name': 'first_name', 
+        'placeholder': 'First Name'
+    }))
+
+    last_name = forms.CharField(label="Last Name", widget=forms.TextInput(attrs={
+        'type': 'text',
+        'class': 'form-control',  
+        'name': 'last_name', 
+        'placeholder': 'Last Name'
+    }))
+
+    email = forms.EmailField(label="Email", widget=forms.TextInput(attrs={
+        'type': 'email',
+        'class': 'form-control',  
+        'placeholder': 'Email Address'
+    }))
+
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email']
+        # exclude = ['user']
+
+# Updating the profile form
+class ProfileUpdateForm(ModelForm):
+    class Meta:
+        model = Author
+        fields = ['profile_pic']

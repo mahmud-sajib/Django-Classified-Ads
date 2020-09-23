@@ -82,14 +82,16 @@
                             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false"><i class="lni-user"></i> {{ request.user }}</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{% url 'logout' %}"><i class="lni-enter"></i>
-                                    Logout</a>
-                                <!-- <a class="dropdown-item" href="{% url 'dashboard' %}"><i class="lni-dashboard"></i>
+                                
+                                <a class="dropdown-item" href="{% url 'dashboard' %}"><i class="lni-dashboard"></i>
                                     Dashboard</a>
 
                                 <a class="dropdown-item" href="{% url 'profile-settings' %}"><i class="lni-cog"></i>
                                     Account Settings</a>
-                                <a class="dropdown-item" href="{% url 'profile-ads' %}"><i class="lni-wallet"></i> My
+
+                                <a class="dropdown-item" href="{% url 'logout' %}"><i class="lni-enter"></i>
+                                    Logout</a>
+                                <!-- <a class="dropdown-item" href="{% url 'profile-ads' %}"><i class="lni-wallet"></i> My
                                     Ads</a>
                                 <a class="dropdown-item" href="{% url 'profile-favorite-ads' %}"><i
                                         class="lni-heart"></i>

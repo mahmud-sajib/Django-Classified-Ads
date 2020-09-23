@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE)
-    # profile_pic = models.ImageField(default="pro_pic.png", upload_to='uploads/profile-pictures')
+    profile_pic = models.ImageField(default="default-profile-pic.png", upload_to='uploads/profile-pictures', null=True)
 
     def __str__(self):
         return self.user.username

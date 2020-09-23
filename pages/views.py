@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
-from ads.models import Ads, Category
+from ads.models import Ads, Category, AdsImages
 
 # Model Forms.
 
@@ -8,11 +8,20 @@ from ads.models import Ads, Category
 
 # Home view
 def home(request):
+    pk=None
+    ads=None
     # Fetch recend ads
     recent_ads = Ads.objects.order_by('date_created')[0:3]
     
     # Fetch featured Ads
     featured_ads = Ads.objects.filter(is_featured=True)
+
+    # p = recent_ads.filter(adsimages__image.url)
+    # print(f"Photo: {f_p}")
+
+    
+
+    # print(f"Photo: {f_p}")
 
     # Fetch search location & category 
     location_search = Ads.objects.values_list('state', flat=True).distinct()
@@ -22,6 +31,8 @@ def home(request):
     context = {
         'recent_ads' : recent_ads,
         'featured_ads' : featured_ads,
+        # 'ads_detail' : ads_detail,
+        # 'ads_photos' : ads_photos,
         'location_search' : location_search,
         'category_search' : category_search,
     }

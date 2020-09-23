@@ -112,6 +112,13 @@ def ads_search(request):
 
     return render(request, 'ads/ads-search.html', context)
 
+def ads_delete(request, pk):
+    ad = get_object_or_404(Ads, pk=pk)
+    ad.delete()
+    return redirect("dashboard")
+
+
+
 
 
 
