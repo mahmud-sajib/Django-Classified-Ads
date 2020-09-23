@@ -42,11 +42,10 @@ INSTALLED_APPS = [
     'pages',
     'ads',
     'profiles',
-    'authentication',
+    'authentication.apps.AuthenticationConfig',
     # Packages
     'ckeditor',
     'debug_toolbar',
-    
 ]
 
 MIDDLEWARE = [
