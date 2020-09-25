@@ -7,9 +7,10 @@
         <div class="row">
           <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
             <div class="widget">
-              <h3 class="footer-logo"><img src="{% static 'img/site-logo.png' %}" alt=""></h3>
+              <h3 class="footer-logo"><img src="{% static 'images/site-logo.png' %}" alt=""></h3>
               <div class="textwidget">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum. Sed ex est, consectetur eget facilisis sed, auctor ut purus.</p>
+                <p>Buy And Sell Everything From Hunting Vehicles, Firearms, Merchandise
+                  Or Search Hunting Land, Guide Jobs And More</p>
               </div>
             </div>
           </div>
@@ -17,10 +18,14 @@
             <div class="widget">
               <h3 class="block-title">Latest Ads</h3>
               <ul class="media-content-list">
-                {% for ad in footer_recent_ads %}
+                
                 <li>
+                  {% for ad in footer_recent_ads %}
+
                   <div class="media-left">
-                    <img class="img-fluid" src="{{ ad.image.url }}" alt="">
+                    {% for img in ad.adsimages_set.all %}
+                    <img class="img-fluid" src="{{ img.image.url }}" alt="">
+                    {% endfor %}
                     <div class="overlay">
                       <span class="price">{{ ad.price }}</span>
                     </div>
@@ -39,26 +44,23 @@
             <div class="widget">
               <h3 class="block-title">Help & Support</h3>
               <ul class="menu">
-                
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Purchase Protection</a></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Contact us</a></li>
+                <li><a href="{% url 'terms-of-service' %}">Privacy Policy</a></li>
+                <li><a href="{% url 'faq' %}">FAQ</a></li>
+                <li><a href="{% url 'contact' %}">Contact us</a></li>
               </ul>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
             <div class="widget">
-              <h3 class="block-title">Subscribe us</h3>
-              <p class="text-sub">We have over 5 years of experience Our suppoer avalable to help you 24 hours a day, seven days week</p>
-              <form method="post" id="subscribe-form" name="subscribe-form" class="validate">
+              <h3 class="block-title">Connect with us</h3>
+              <p class="text-sub">We have years of experience and our agents are avalable to help you 24 hours a day, seven days week.</p>
+              <!-- <form method="post" id="subscribe-form" name="subscribe-form" class="validate">
                 <div class="form-group is-empty">
                   <input type="email" value="" name="Email" class="form-control" id="EMAIL" placeholder="Email address" required="">
                   <button type="submit" name="subscribe" id="subscribes" class="btn btn-common sub-btn"><i class="lni-check-box"></i></button>
                   <div class="clearfix"></div>
                 </div>
-              </form> 
+              </form>  -->
               <ul class="footer-social">
                 <li><a class="facebook" href="#"><i class="lni-facebook-filled"></i></a></li>
                 <li><a class="twitter" href="#"><i class="lni-twitter-filled"></i></a></li>
@@ -78,10 +80,12 @@
         <div class="row">
           <div class="col-md-12">
             <div class="site-info float-left">
-              <p>All copyrights reserved &copy; 2020 - Developed by <a href="" rel="nofollow">Mahmud</a></p>
+              <p>Copyright &copy; {% now "Y" %} HuntingAds.com | All rights reserved </p>
             </div>              
-            <div class="float-right">  
-              <ul class="bottom-card">
+            <div class="float-right"> 
+              <p>Software developed by <a href="" rel="nofollow">Mahmudul Sajib</a></p> 
+              <!-- <ul class="bottom-card">
+
                 <li>
                     <a href="#"><img src="{% static 'img/footer/card1.jpg' %}" alt="card"></a>
                 </li>
@@ -94,7 +98,8 @@
                 <li>
                     <a href="#"><img src="{% static 'img/footer/card4.jpg' %}" alt="card"></a>
                 </li>
-              </ul>
+              </ul> -->
+
             </div>
           </div>
         </div>
@@ -129,7 +134,13 @@
   <script src="{% static 'js/form-validator.min.js' %}"></script>
   <script src="{% static 'js/contact-form-script.min.js' %}"></script>
   <script src="{% static 'js/summernote.js' %}"></script>
+  
   <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+  
+  <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+
+  <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+
   <script src="{% static 'js/main.js' %}"></script>
 
 </body>

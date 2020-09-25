@@ -10,10 +10,10 @@
       <div class="col-md-12">
         <div class="breadcrumb-wrapper">
           <h2 class="product-title">{{ ads_detail.title }} Details</h2>
-          <ol class="breadcrumb">
+          <!-- <ol class="breadcrumb">
             <li><a href="#">Home /</a></li>
             <li class="current">Details</li>
-          </ol>
+          </ol> -->
         </div>
       </div>
     </div>
@@ -29,6 +29,7 @@
     <div class="product-info row">
       <div class="col-lg-7 col-md-12 col-xs-12">
         <div class="details-box ads-details-wrapper">
+          {% if ads_photos.count > 1 %}
           <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
             <!--Indicators-->
             <ol class="carousel-indicators">
@@ -59,12 +60,21 @@
               <!--/.Controls-->
             </div>
           </div>
+          {% else %}
+                {% for p in ads_photos %}
+                {% if forloop.first %}
+                    <img class="img-fluid" src="{{ p.image.url }}" alt="">
+                {% endif %}
+                {% endfor %}
+          {% endif %}
         </div>
-
+        {% if ads_detail.video %}
         <!-- Button trigger modal -->
-        <button id="video-modal" type="button" class="btn btn-link" data-toggle="modal" data-target="#basicExampleModal">
-          Play Video
+        <button id="video-modal" type="button" class="btn btn-common btn-reply" data-toggle="modal"
+          data-target="#basicExampleModal">
+          <i class="lni-video"></i> Play Video
         </button>
+        {% endif %}
 
         <!-- Video Modal -->
         <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -82,13 +92,13 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                
+
               </div>
             </div>
           </div>
         </div>
-        
-        
+
+
       </div>
       <div class="col-lg-5 col-md-12 col-xs-12">
 
@@ -97,15 +107,39 @@
             <h2>{{ ads_detail.title }}</h2>
             <div class="mb-2 ads-description">{{ ads_detail.description|safe }}</div>
             <div class="details-meta">
-              <span><a href="#"><i class="lni-alarm-clock"></i> {{ ads_detail.date_created }}</a></span>
-              <span><a href="#"><i class="lni-map-marker"></i> {{ ads_detail.state }}</a></span>
-              <span><a href="#"><i class="lni-eye"></i> 299 View</a></span>
+              <span><i class="lni-alarm-clock"></i> Posted: {{ ads_detail.date_created }}</span>
+              <!-- <span><a href="#"><i class="lni-map-marker"></i> {{ ads_detail.state }}</a></span> -->
+              <!-- <span><a href="#"><i class="lni-eye"></i> 299 View</a></span> -->
             </div>
           </div>
           <ul class="advertisement mb-4">
             <li>
-              <p><strong><i class="lni-folder"></i> Categories:</strong> <a
-                  href="{% url 'category-archive' ads_detail.category.slug %}">{{ ads_detail.category }}</a></p>
+              <p>
+                <strong><i class="lni-user"></i> Seller:</strong> {{ ads_detail.author }}
+                <a class="link-small" href="{% url 'author-archive' ads_detail.author.pk %}">(See other ads by this
+                  seller)</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong><i class="lni-map-marker"></i> State:</strong> {{ ads_detail.state }}
+                <a class="link-small" href="{% url 'state-archive' ads_detail.state.slug %}">(See other ads in this
+                  state)</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong><i class="lni-map"></i> City:</strong> {{ ads_detail.city }}
+                <a class="link-small" href="{% url 'city-archive' ads_detail.city.slug %}">(See other ads in this
+                  city)</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong><i class="lni-folder"></i> Category:</strong> {{ ads_detail.category }}
+                <a class="link-small" href="{% url 'category-archive' ads_detail.category.slug %}">(See other ads in
+                  this category)</a>
+              </p>
             </li>
             <li>
               <p><strong><i class="lni-archive"></i> Condition:</strong> {{ ads_detail.condition }}</p>
@@ -115,8 +149,8 @@
             </li>
           </ul>
           <div class="ads-btn mb-4">
-            <a href="mailto:abc@gmail.com" class="btn btn-common btn-reply"><i class="lni-envelope"></i> Email</a>
-            <a href="tel:123-456-7890" class="btn btn-common"><i class="lni-phone-handset"></i> 01154256643</a>
+            <a href="mailto:{{ ads_detail.author.user.email }}" class="btn btn-common btn-reply"><i class="lni-envelope"></i> {{ ads_detail.author.user.email }}</a>
+            <a href="tel:{{ ads_detail.phone }}" class="btn btn-common"><i class="lni-phone-handset"></i>{{ ads_detail.phone }} </a>
           </div>
           <!-- <div class="share">
                 <span>Share: </span>

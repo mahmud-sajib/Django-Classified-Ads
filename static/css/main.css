@@ -1707,10 +1707,6 @@ a.back-to-top:hover, a.back-to-top:focus {
   line-height: 40px;
 }
 
-#featured {
-  background-color: #fafafa;
-}
-
 #featured .featured-box {
   margin-top: 0;
 }
@@ -1719,6 +1715,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   position: relative;
   overflow: hidden;
   color: #ffffff;
+  margin-bottom: 25px;
 }
 
 .futere-ad-widget img {
@@ -2531,7 +2528,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 }
 
 .details-box .advertisement li {
-  display: inline-block;
+  display: block;
   margin-right: 10px;
 }
 
@@ -5092,7 +5089,52 @@ ul.errorlist li, .error-text{
 #video-modal {
 	display: block;
 	margin: 0 auto;
-  margin-top: 15px;
+  margin-top: 25px;
+}
+
+.top-banner-img{
+  margin: 0 auto;
+  display: block;
+}
+.link-small{
   text-decoration: underline;
-  color:#89613A !important;
+  font-size: 12px;
+  color: #89613A !important;
+  font-weight: bold;
+}
+
+.ads-form label{
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.req-aseteric{
+  color: red;
+}
+
+.h-text, p .h-text{
+  font-size: 12px;
+  color: #89613A;
+  font-weight: bold;
+}
+
+.success-msg, .error-msg{
+  margin-top: 25px;
+}
+
+.alert-success {
+  font-weight: bold;
+  color: green;
+  border-color: #c3e6cb;
+}
+
+.alert-danger {
+  color: red;
+  font-weight: bold;
+  border-color: #f5c6cb;
+}
+
+#saveBtn{
+  margin: 0 auto;
+  display: block;
 }

@@ -3,16 +3,16 @@
 {% block content %}
 
     <!-- Page Header Start -->
-    <div class="page-header" style="background: url({% static 'img/banner1.jpg' %});">
+    <div class="page-header" style="background: url('img/banner1.jpg');">
       <div class="container">
         <div class="row">         
           <div class="col-md-12">
             <div class="breadcrumb-wrapper">
               <h2 class="product-title">Join Us</h2>
-              <ol class="breadcrumb">
+              <!-- <ol class="breadcrumb">
                 <li><a href="#">Home /</a></li>
                 <li class="current">Register</li>
-              </ol>
+              </ol> -->
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@
                   </div>
                 </div>  
                 <div class="signup-notice mb-3"> 
-                    <p class="text-center">By registering, you accept our Terms & Conditions</p>
+                    <p class="text-center">By registering, you accept our <a href="{% url 'terms-of-service' %}">Terms & Conditions</a> </p>
                   </div>
                 </div>   
                 <div class="text-center">

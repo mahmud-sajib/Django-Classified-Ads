@@ -1,13 +1,14 @@
+
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
 
-<!-- Category Archive Section Start -->
+<!-- State Archive Section Start -->
 <section class="featured section-padding">
   <div class="container">
-    <h1 class="section-title">Classifieds in {{ category.category_name }} category</h1>
+    <h1 class="section-title">Classifieds in {{ state.state_name }} state</h1>
     <div class="row">
-      {% for ads in ads_by_category %}
+      {% for ads in ads_by_state %}
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
         <div class="featured-box">
           <figure>
@@ -49,7 +50,7 @@
     </div>
   </div>
 </section>
-<!-- Category Archive Section End -->
+<!-- State Archive Section End -->
 
 
 {% endblock content %}

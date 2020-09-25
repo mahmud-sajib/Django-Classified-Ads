@@ -17,60 +17,7 @@ class Author(models.Model):
         return self.user.username
 
 class Ads(models.Model):
-    STATE = (
-        ('Alabama', 'Alabama'),
-        ('Alaska', 'Alaska'),
-        ('Arizona', 'Arizona'),
-        ('Arkansas', 'Arkansas'),
-        ('California', 'California'),
-        ('Colorado', 'Colorado'),
-        ('Connecticut', 'Connecticut'),
-        ('Delaware', 'Delaware'),
-        ('District Of Columbia', 'District Of Columbia'),
-        ('Florida', 'Florida'),
-        ('Georgia', 'Georgia'),
-        ('Hawaii', 'Hawaii'),
-        ('Idaho', 'Idaho'),
-        ('Illinois', 'Illinois'),
-        ('Indiana', 'Indiana'),
-        ('Iowa', 'Iowa'),
-        ('Kansas', 'Kansas'),
-        ('Kentucky', 'Kentucky'),
-        ('Louisiana', 'Louisiana'),
-        ('Maine', 'Maine'),
-        ('Maryland', 'Maryland'),
-        ('Massachusetts', 'Massachusetts'),
-        ('Michigan', 'Michigan'),
-        ('Minnesota', 'Minnesota'),
-        ('Mississippi', 'Mississippi'),
-        ('Missouri', 'Missouri'),
-        ('Montana', 'Montana'),
-        ('Nebraska', 'Nebraska'),
-        ('Nevada', 'Nevada'),
-        ('New Hampshire', 'New Hampshire'),
-        ('New Jersey', 'New Jersey'),
-        ('New Mexico', 'New Mexico'),
-        ('New York', 'New York'),
-        ('North Carolina', 'North Carolina'),
-        ('North Dakota', 'North Dakota'),
-        ('Ohio', 'Ohio'),
-        ('Oklahoma', 'Oklahoma'),
-        ('Oregon', 'Oregon'),
-        ('Pennsylvania', 'Pennsylvania'),
-        ('Rhode Island', 'Rhode Island'),
-        ('South Carolina', 'South Carolina'),
-        ('South Dakota', 'South Dakota'),
-        ('Tennessee', 'Tennessee'),
-        ('Texas', 'Texas'),
-        ('Utah', 'Utah'),
-        ('Vermont', 'Vermont'),
-        ('Virginia', 'Virginia'),
-        ('Washington', 'Washington'),
-        ('West Virginia', 'West Virginia'),
-        ('Wisconsin', 'Wisconsin'),
-        ('Wyoming', 'Wyoming'),
-    )
-
+    
     CONDITION = (
         ('Excellent', 'Excellent'),
         ('Good', 'Good'),
@@ -82,20 +29,57 @@ class Ads(models.Model):
     description = RichTextField()
     price = models.DecimalField(max_digits=8, decimal_places=2)
     date_created = models.DateTimeField(auto_now_add=True)
-    state = models.CharField(max_length=100, choices=STATE)
-    city = models.CharField(max_length=100)
-    category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True) 
+
+    state = models.ForeignKey('State', on_delete=models.CASCADE, null=True)
+    city = models.ForeignKey('City', on_delete=models.CASCADE, null=True)
+     
+    # city = models.CharField(max_length=100)
+    category = models.ForeignKey('Category', on_delete=models.CASCADE, null=True) 
     condition = models.CharField(max_length=100, choices=CONDITION)
     brand = models.CharField(max_length=200)
+    # email = models.EmailField(max_length=254, null=True)
     phone = models.CharField(max_length=50)
     video = EmbedVideoField(null=True, blank=True) 
     is_featured = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=False)
 
     class Meta:
         verbose_name_plural = "Classified Ads"
 
     def __str__(self):
         return self.title
+
+class State(models.Model):
+    state_name = models.CharField(max_length=100)
+    slug = models.SlugField(blank=True, null=True)
+
+    # overriding save method to add slug field from state name if not provided
+    def save(self, *args, **kwargs):
+        if not self.slug and self.state_name:
+            self.slug = slugify(self.state_name)
+        super().save(*args, **kwargs)
+
+    class Meta:
+        verbose_name_plural = "States"
+
+    def __str__(self):
+        return self.state_name
+
+class City(models.Model):
+    city_name = models.CharField(max_length=100)
+    slug = models.SlugField(blank=True, null=True)
+
+    # overriding save method to add slug field from state name if not provided
+    def save(self, *args, **kwargs):
+        if not self.slug and self.city_name:
+            self.slug = slugify(self.city_name)
+        super().save(*args, **kwargs)
+
+    class Meta:
+        verbose_name_plural = "Cities"
+
+    def __str__(self):
+        return self.city_name
 
 
 class Category(models.Model):
@@ -127,6 +111,28 @@ class AdsImages(models.Model):
 
     class Meta:
         verbose_name_plural = 'Classified Ads Images'
+
+class AdsTopBanner(models.Model):
+    title = models.CharField(max_length=200, default="Place Your Ad", blank=True)
+    image = models.ImageField(upload_to='banners/%Y/%m/%d', default=None)
+
+    def __str__(self):
+        return self.title
+
+class AdsRightBanner(models.Model):
+    title = models.CharField(max_length=200, default="Place Your Ad", blank=True)
+    image = models.ImageField(upload_to='banners/%Y/%m/%d', default=None)
+
+    def __str__(self):
+        return self.title
+
+class AdsBottomBanner(models.Model):
+    title = models.CharField(max_length=200, default="Place Your Ad", blank=True)
+    image = models.ImageField(upload_to='banners/%Y/%m/%d', default=None)
+
+    def __str__(self):
+        return self.title
+
     
 
 
