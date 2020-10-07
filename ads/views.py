@@ -6,6 +6,8 @@ from .forms import PostAdsForm
 from django.contrib.auth.forms import User
 from django.contrib.auth.models import User
 
+from django.contrib.auth.decorators import login_required
+
 # importing messages
 from django.contrib import messages
 
@@ -13,6 +15,7 @@ from ads.models import Author
 # Create your views here.
 
 # Post ads view
+@login_required(login_url='login')
 def post_ads(request):
     if request.method == 'POST':
 
@@ -161,6 +164,7 @@ def ads_search(request):
     return render(request, 'ads/ads-search.html', context)
 
 # Ads delete view
+@login_required(login_url='login')
 def ads_delete(request, pk):
     ad = get_object_or_404(Ads, pk=pk)
     ad.delete()
