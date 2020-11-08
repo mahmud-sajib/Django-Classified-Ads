@@ -26,7 +26,7 @@
     <div class="row">
       <div class="col-lg-4 col-md-12 col-xs-12 page-sidebar">
         <aside>
-          <!-- Searcg Widget -->
+          <!-- Search Widget -->
           <!-- <div class="widget_search">
             <form role="search" id="search-form">
               <input type="search" class="form-control" autocomplete="off" name="s" placeholder="Search..."
@@ -115,22 +115,22 @@
                       <span>Created {{ ad_listing.date_created }}</span>
                       <ul class="address">
                         <li>
-                          <a href="#"><i class="lni-map-marker"></i> {{ ad_listing.city }}, {{ ad_listing.state }}</a>
+                          <i class="lni-map-marker"></i> {{ ad_listing.city }}, {{ ad_listing.state }}
                         </li>
                         <li>
-                          <a href="#"><i class="lni-alarm-clock"></i> {{ ad_listing.date_created|date }}</a>
+                          <i class="lni-alarm-clock"></i> {{ ad_listing.date_created|date }}
                         </li>
                         <li>
-                          <a href="#"><i class="lni-user"></i> Maria Barlow</a>
+                          <i class="lni-user"></i> {{ ad_listing.author.user }}
                         </li>
                         <li>
-                          <a href="#"><i class="lni-package"></i> {{ ad_listing.condition }}</a>
+                          <i class="lni-package"></i> {{ ad_listing.condition }}
                         </li>
                       </ul>
                       <div class="listing-bottom">
-                        <h3 class="price float-left">{{ ad_listing.price }}</h3>
-                        <a href="account-myads.html" class="btn-verified float-right"><i class="lni-check-box"></i>
-                          Verified Ad</a>
+                        <h3 class="price float-left">$ {{ ad_listing.price }}</h3>
+                        <p class="btn-verified float-right"><i class="lni-check-box"></i>
+                          Verified Ad</p>
                       </div>
                     </div>
                   </div>

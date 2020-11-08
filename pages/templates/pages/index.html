@@ -149,7 +149,7 @@
           <h1 class="section-title">Browse Classifieds by State</h1>
           <div class="row">
             {% for state in state_listing %}
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3 text-center">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
               <a style="font-size: 18px; color: #89613A;" href="{% url 'state-archive' state.slug %}">
                 <i class="lni-map-marker"></i>
                 {{ state }}
@@ -243,7 +243,7 @@
       <div class="col-md-12">
         <h3 class="section-title">Advertisement</h3>
         {% for banner in bottom_banner%}
-        <img src="{{ banner.image.url }}" class="top-banner-img" alt="">
+        <img src="{{ banner.image.url }}" class="top-banner-img img-fluid" alt="">
         {% endfor %}
       </div>
     </div>

@@ -5,47 +5,54 @@
 <!-- Category Archive Section Start -->
 <section class="featured section-padding">
   <div class="container">
-    <h1 class="section-title">Classifieds in {{ category.category_name }} category</h1>
+    <h1 class="section-title">Classifieds in  <span class="focus-keyword">{{ category.category_name }}</span> category</h1>
     <div class="row">
-      {% for ads in ads_by_category %}
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-        <div class="featured-box">
-          <figure>
-            <a href="{% url 'ads-detail' ads.id %}">
-                {% for img in ads.adsimages_set.all %}
-                {% if forloop.first %}
-                    <img class="img-fluid" src="{{ img.image.url }}" alt="">
-                {% endif %}
-                {% endfor %}
-            </a>
-          </figure>
-          <div class="feature-content">
-            <h4><a href="{% url 'ads-detail' ads.id %}">{{ ads.title}}</a></h4>
-            <span>Posted: {{ ads.date_created}}</span>
-            <ul class="address">
-              <li>
-                <a href="#"><i class="lni-map-marker"></i>{{ ads.state}}</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-alarm-clock"></i>{{ ads.date_created | date}}</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-user"></i>{{ ads.author }}</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-package"></i>{{ ads.condition }}</a>
-              </li>
-            </ul>
-            <div class="listing-bottom">
-              <h3 class="price float-left">{{ ads.price }}</h3>
-              <p class="btn-verified float-right"><i class="lni-check-box"></i> Verified
-                Ad</p>
+      {% if ads_by_category %}
+        {% for ads in ads_by_category %}
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+          <div class="featured-box">
+            <figure>
+              <a href="{% url 'ads-detail' ads.id %}">
+                  {% for img in ads.adsimages_set.all %}
+                  {% if forloop.first %}
+                      <img class="img-fluid" src="{{ img.image.url }}" alt="">
+                  {% endif %}
+                  {% endfor %}
+              </a>
+            </figure>
+            <div class="feature-content">
+              <h4><a href="{% url 'ads-detail' ads.id %}">{{ ads.title}}</a></h4>
+              <span>Posted: {{ ads.date_created}}</span>
+              <ul class="address">
+                <li>
+                 <i class="lni-map-marker"></i>{{ ads.state}}</a>
+                </li>
+                <li>
+                  <i class="lni-alarm-clock"></i>{{ ads.date_created | date}}</a>
+                </li>
+                <li>
+                  <i class="lni-user"></i>{{ ads.author }}</a>
+                </li>
+                <li>
+                  <i class="lni-package"></i>{{ ads.condition }}</a>
+                </li>
+              </ul>
+              <div class="listing-bottom">
+                <h3 class="price float-left">$ {{ ads.price }}</h3>
+                <p class="btn-verified float-right"><i class="lni-check-box"></i> Verified
+                  Ad</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      {% endfor %}
-      
+        {% endfor %}
+      {% else %}
+        <div class="container">
+          <div class="col-lg-12">
+            <h4 class="text-center">Sorry! We didn't find any Classified in this Category</h4>
+          </div>
+        </div>
+      {% endif %}
     </div>
   </div>
 </section>

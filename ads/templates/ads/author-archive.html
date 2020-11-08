@@ -5,49 +5,56 @@
 <!-- Category Archive Section Start -->
 <section class="featured section-padding">
   <div class="container">
-    <h1 class="section-title">Classifieds by {{ author.user }} </h1>
+    <h1 class="section-title">Classifieds by <span class="focus-keyword">{{ author.user }} </span></h1>
     <div class="row">
+      {% if ads_by_author %}
       {% for ads in ads_by_author %}
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-        <div class="featured-box">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+          <div class="featured-box">
+            
+            <figure>
+              <a href="{% url 'ads-detail' ads.id %}">
+                  {% for img in ads.adsimages_set.all %}
+                  {% if forloop.first %}
+                      <img class="img-fluid" src="{{ img.image.url }}" alt="">
+                  {% endif %}
+                  {% endfor %}
+              </a>
+            </figure>
           
-          <figure>
-            <a href="{% url 'ads-detail' ads.id %}">
-                {% for img in ads.adsimages_set.all %}
-                {% if forloop.first %}
-                    <img class="img-fluid" src="{{ img.image.url }}" alt="">
-                {% endif %}
-                {% endfor %}
-            </a>
-          </figure>
-         
-          <div class="feature-content">
-            <h4><a href="{% url 'ads-detail' ads.id %}">{{ ads.title}}</a></h4>
-            <span>Posted: {{ ads.date_created}}</span>
-            <ul class="address">
-              <li>
-                <a href="#"><i class="lni-map-marker"></i>{{ ads.state}}</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-alarm-clock"></i>{{ ads.date_created | date}}</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-user"></i>{{ ads.author }}</a>
-              </li>
-              <li>
-                <a href="#"><i class="lni-package"></i>{{ ads.condition }}</a>
-              </li>
-            </ul>
-            <div class="listing-bottom">
-              <h3 class="price float-left">{{ ads.price }}</h3>
-              <p class="btn-verified float-right"><i class="lni-check-box"></i> Verified
-                Ad</p>
+            <div class="feature-content">
+              <h4><a href="{% url 'ads-detail' ads.id %}">{{ ads.title}}</a></h4>
+              <span>Posted: {{ ads.date_created}}</span>
+              <ul class="address">
+                <li>
+                  <i class="lni-map-marker"></i>{{ ads.state}}
+                </li>
+                <li>
+                  <i class="lni-alarm-clock"></i>{{ ads.date_created | date}}
+                </li>
+                <li>
+                  <i class="lni-user"></i>{{ ads.author }}
+                </li>
+                <li>
+                  <i class="lni-package"></i>{{ ads.condition }}
+                </li>
+              </ul>
+              <div class="listing-bottom">
+                <h3 class="price float-left">$ {{ ads.price }}</h3>
+                <p class="btn-verified float-right"><i class="lni-check-box"></i> Verified
+                  Ad</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       {% endfor %}
-      
+      {% else %}
+        <div class="container">
+          <div class="col-lg-12">
+            <h4 class="text-center">Sorry! We didn't find any Classified in this Category</h4>
+          </div>
+        </div>
+      {% endif %}
     </div>
   </div>
 </section>

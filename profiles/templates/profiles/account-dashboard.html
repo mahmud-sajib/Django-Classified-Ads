@@ -71,9 +71,9 @@
                     <!-- <th>Photo</th> -->
                     <th>Title</th>
                     <th>Category</th>
-                    
                     <th>Price</th>
                     <th>Date Posted</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -81,18 +81,15 @@
                   {% for ad in ads_posted %}
                   <tr data-category="active">
                     
-                    <!-- <td class="photo"><img class="img-fluid" src="{% static 'img/product/img1.jpg' %}" alt=""></td> -->
+                    
 
-                   
+                  
                     
                     <td data-title="Title">
                       <h3>{{ ad.title }}</h3>
                       <!-- <span>Ad ID: ng3D5hAMHPajQrM</span> -->
                     </td>
                     <td data-title="Category"><span class="adcategories">{{ ad.category }}</span></td>
-                    <!-- <td data-title="Ad Status"><span class="adstatus adstatusactive">active</span></td> -->
-                    
-                    
                     <td data-title="Price">
                       <h3>{{ ad.price }}</h3>
                     </td>
@@ -100,10 +97,15 @@
                     <td data-title="Date">
                       <h3>{{ ad.date_created }}</h3>
                     </td>
+                    <td data-title="Ad Status">
+                      {% if ad.is_active %}
+                      <span class="adstatus adstatusactive">Active</span>
+                      {% else %}
+                      <span class="adstatus adstatusinactive">Inactive</span>
+                      {% endif %}
+                    </td>
                     <td data-title="Action">
                       <div class="btns-actions">
-                        <!-- <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a>
-                        <a class="btn-action btn-edit" href="#"><i class="lni-pencil"></i></a> -->
                         <a class="btn-action btn-delete" href="{% url 'ads-delete' pk=ad.pk %}"><i class="lni-trash"></i></a>
                       </div>
                     </td>

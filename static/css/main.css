@@ -5119,7 +5119,7 @@ ul.errorlist li, .error-text{
 }
 
 .success-msg, .error-msg{
-  margin-top: 25px;
+  margin-top: 0px;
 }
 
 .alert-success {
@@ -5130,11 +5130,36 @@ ul.errorlist li, .error-text{
 
 .alert-danger {
   color: red;
-  font-weight: bold;
-  border-color: #f5c6cb;
+  font-weight: 900;
+  border-color: transparent;
+  background: transparent;
+  padding: 0;
+  font-size: 13px;
+}
+
+.adstatusinactive {
+  background: #fc9209;
+  color: white;
 }
 
 #saveBtn{
   margin: 0 auto;
   display: block;
+}
+
+.featured-box .feature-content h4 {
+  margin-top: 20px;
+}
+
+.fixed-top {
+  background: #4E5363;
+}
+
+.section-padding {
+  padding: 115px 0;
+}
+
+.focus-keyword{
+  font-style: italic;
+  color: #89613A;
 }

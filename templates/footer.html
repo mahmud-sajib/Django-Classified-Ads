@@ -26,9 +26,7 @@
                     {% for img in ad.adsimages_set.all %}
                     <img class="img-fluid" src="{{ img.image.url }}" alt="">
                     {% endfor %}
-                    <div class="overlay">
-                      <span class="price">{{ ad.price }}</span>
-                    </div>
+                    
                   </div>
                   <div class="media-body">
                     <h4 class="post-title"><a href="{% url 'ads-detail' ad.id %}">{{ ad.title }}</a></h4>
@@ -62,10 +60,10 @@
                 </div>
               </form>  -->
               <ul class="footer-social">
-                <li><a class="facebook" href="#"><i class="lni-facebook-filled"></i></a></li>
-                <li><a class="twitter" href="#"><i class="lni-twitter-filled"></i></a></li>
-                <li><a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a></li>
-                <li><a class="google-plus" href="#"><i class="lni-google-plus"></i></a></li>
+                <li><a class="facebook" target="blank" href="https://www.facebook.com/"><i class="lni-facebook-filled"></i></a></li>
+                <li><a class="twitter" target="blank" href="https://www.twitter.com/"><i class="lni-twitter-filled"></i></a></li>
+                <li><a class="linkedin" target="blank" href="https://www.linkedin.com/"><i class="lni-linkedin-fill"></i></a></li>
+                <li><a class="google-plus" target="blank" href="https://www.google.com/"><i class="lni-google-plus"></i></a></li>
               </ul>          
             </div>
           </div>
@@ -83,7 +81,7 @@
               <p>Copyright &copy; {% now "Y" %} HuntingAds.com | All rights reserved </p>
             </div>              
             <div class="float-right"> 
-              <p>Software developed by <a href="" rel="nofollow">Mahmudul Sajib</a></p> 
+              <p>Software developed by <a href="https://github.com/mahmud-sajib"  target="blank">Mahmudul Sajib</a></p> 
               <!-- <ul class="bottom-card">
 
                 <li>

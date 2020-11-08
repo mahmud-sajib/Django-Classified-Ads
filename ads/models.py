@@ -6,9 +6,10 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 
 from embed_video.fields import EmbedVideoField
+
 # Create your models here.
 
-
+# Author Model
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE)
     profile_pic = models.ImageField(default="default-profile-pic.png", upload_to='uploads/profile-pictures', null=True)
@@ -16,6 +17,7 @@ class Author(models.Model):
     def __str__(self):
         return self.user.username
 
+# Ads Model
 class Ads(models.Model):
     
     CONDITION = (
@@ -29,15 +31,11 @@ class Ads(models.Model):
     description = RichTextField()
     price = models.DecimalField(max_digits=8, decimal_places=2)
     date_created = models.DateTimeField(auto_now_add=True)
-
     state = models.ForeignKey('State', on_delete=models.CASCADE, null=True)
     city = models.ForeignKey('City', on_delete=models.CASCADE, null=True)
-     
-    # city = models.CharField(max_length=100)
     category = models.ForeignKey('Category', on_delete=models.CASCADE, null=True) 
     condition = models.CharField(max_length=100, choices=CONDITION)
     brand = models.CharField(max_length=200)
-    # email = models.EmailField(max_length=254, null=True)
     phone = models.CharField(max_length=50)
     video = EmbedVideoField(null=True, blank=True) 
     is_featured = models.BooleanField(default=False)
@@ -49,6 +47,7 @@ class Ads(models.Model):
     def __str__(self):
         return self.title
 
+# State Model
 class State(models.Model):
     state_name = models.CharField(max_length=100)
     slug = models.SlugField(blank=True, null=True)
@@ -65,11 +64,12 @@ class State(models.Model):
     def __str__(self):
         return self.state_name
 
+# City Model
 class City(models.Model):
     city_name = models.CharField(max_length=100)
     slug = models.SlugField(blank=True, null=True)
 
-    # overriding save method to add slug field from state name if not provided
+    # overriding save method to add slug field from city name if not provided
     def save(self, *args, **kwargs):
         if not self.slug and self.city_name:
             self.slug = slugify(self.city_name)
@@ -81,7 +81,7 @@ class City(models.Model):
     def __str__(self):
         return self.city_name
 
-
+# Category Model
 class Category(models.Model):
     category_name = models.CharField(max_length=100)
     category_image = models.ImageField(upload_to='uploads/category', blank=True, null=True)
@@ -99,11 +99,9 @@ class Category(models.Model):
     def __str__(self):
         return self.category_name
 
-
+# Image Model
 class AdsImages(models.Model):
-
-    """ models.CASCADE: Deleting an ads will delete the associated images """
-    ads = models.ForeignKey(Ads, on_delete=models.CASCADE) 
+    ads = models.ForeignKey(Ads, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='uploads/%Y/%m/%d', default=None)
 
     def __str__(self):
@@ -112,6 +110,7 @@ class AdsImages(models.Model):
     class Meta:
         verbose_name_plural = 'Classified Ads Images'
 
+# Top Banner Model
 class AdsTopBanner(models.Model):
     title = models.CharField(max_length=200, default="Place Your Ad", blank=True)
     image = models.ImageField(upload_to='banners/%Y/%m/%d', default=None)
@@ -119,6 +118,7 @@ class AdsTopBanner(models.Model):
     def __str__(self):
         return self.title
 
+# Right Banner Model
 class AdsRightBanner(models.Model):
     title = models.CharField(max_length=200, default="Place Your Ad", blank=True)
     image = models.ImageField(upload_to='banners/%Y/%m/%d', default=None)
@@ -126,6 +126,7 @@ class AdsRightBanner(models.Model):
     def __str__(self):
         return self.title
 
+# Bottom Banner Model
 class AdsBottomBanner(models.Model):
     title = models.CharField(max_length=200, default="Place Your Ad", blank=True)
     image = models.ImageField(upload_to='banners/%Y/%m/%d', default=None)

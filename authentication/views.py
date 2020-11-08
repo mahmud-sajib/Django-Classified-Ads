@@ -17,6 +17,7 @@ from .tokens import account_activation_token
 
 # Create your views here.
 
+# Signup view
 def signup_view(request):       
     if request.method == 'POST':
         # fill the form with requested data
@@ -38,8 +39,8 @@ def signup_view(request):
 
             to_email = reg_form.cleaned_data.get('email')
             to_list = [to_email]
-            form_email = settings.EMAIL_HOST_USER
-            send_mail(mail_subject, message, form_email, to_list, fail_silently=False, )
+            from_email = settings.EMAIL_HOST_USER
+            send_mail(mail_subject, message, from_email, to_list, fail_silently=False, )
 
             return redirect('signup-success')
                             
@@ -52,10 +53,11 @@ def signup_view(request):
 
     return render(request, 'authentication/signup.html', context)
 
+# Signup success view
 def signup_success_view(request):
     return render(request, 'authentication/signup-success.html')
 
-
+# Activate account view
 def account_activate_view(request, uid, token):
     try:
         user = get_object_or_404(User, pk=uid)
@@ -65,30 +67,31 @@ def account_activate_view(request, uid, token):
     if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
         user.save()
-        # return redirect('activate')
         return render(request, 'authentication/activate-account.html')
     else:
         return HttpResponse("Invalid activation link. Please contact support.")
 
+# Login view
 def login_view(request):
     if request.method == 'POST':
-        # get username
+        # Get username
         username = request.POST.get('username')
-        # get password
+        # Get password
         password = request.POST.get('password')
-        # check authentication
+        # Check authentication
         user = authenticate(request, username=username, password=password)
-        # if user exists log them in
+        # If user exists log them in
         if user is not None:
             login(request, user)
             redirect_url = request.GET.get('next','home')
             return redirect(redirect_url)
         else:
-            # show error message
+            # Show error message
             messages.error(request, f"Oops! Username or Password is invalid. Please try again.")
 
     return render(request, 'authentication/login.html')
 
+# Logout view
 def logout_view(request):
     # call logout method
     logout(request)

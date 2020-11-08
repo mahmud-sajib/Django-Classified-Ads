@@ -5,50 +5,63 @@
 <!-- Latest Ads Listing Section Start -->
 <section class="featured section-padding">
   <div class="container">
-    <h1 class="section-title">Latest Classifieds</h1>
+    
     <div class="row">
       
-
+      {% if ads_search_result %}
         {% for ad_search in ads_search_result %}
+        <div class="col-lg-12">
+          <h1 class="section-title">We found the following Classifieds for you</h1>
+        </div>
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
           <div class="featured-box">
-            {% if ad_search.image %}
             <figure>
-              <div class="icon">
-                <i class="lni-heart"></i>
-              </div>
-              <a href="#"><img class="img-fluid" src="{{ ad_search.image.url }}" alt=""></a>
+              <a href="{% url 'ads-detail' ad_search.id %}">
+                  {% for img in ad_search.adsimages_set.all %}
+                  {% if forloop.first %}
+                      <img class="img-fluid" src="{{ img.image.url }}" alt="">
+                  {% endif %}
+                  {% endfor %}
+              </a>
             </figure>
-            {% endif %}
+            
             <div class="feature-content">
               <div class="product">
-                  <a href="#"><i class="lni-folder"></i>{{ ad_search.category.category_name }}</a>
+                  <a href="{% url 'category-archive' ad_search.category.slug %}"><i class="lni-folder"></i>{{ ad_search.category.category_name }}</a>
+
               </div>
-              <h4><a href="ads-details.html">{{ ad_search.title }}</a></h4>
+              <h4><a href="{% url 'ads-detail' ad_search.id %}">{{ ad_search.title }}</a></h4>
               <span>Created: {{ ad_search.date_created }}</span>
               <ul class="address">
                 <li>
-                  <a href="#"><i class="lni-map-marker"></i>{{ ad_search.state }}</a>
+                  <i class="lni-map-marker"></i>{{ ad_search.state }}
                 </li>
                 <li>
-                  <a href="#"><i class="lni-alarm-clock"></i>{{ ad_search.date_created | date }}</a>
+                  <i class="lni-alarm-clock"></i>{{ ad_search.date_created | date }}
                 </li>
                 <li>
-                  <a href="#"><i class="lni-user"></i> Maria Barlow</a>
+                  <i class="lni-user"></i> {{ ad_search.author.user }}
                 </li>
                 <li>
-                  <a href="#"><i class="lni-package"></i>{{ ad_search.condition }}</a>
+                  <i class="lni-package"></i>{{ ad_search.condition }}
                 </li>
               </ul>
               <div class="listing-bottom">
-                <h3 class="price float-left">{{ ad_search.price }}</h3>
-                <a href="account-myads.html" class="btn-verified float-right"><i class="lni-check-box"></i> Verified
-                  Ad</a>
+                <h3 class="price float-left">$ {{ ad_search.price }}</h3>
+                <p class="btn-verified float-right"><i class="lni-check-box"></i> Verified
+                  Ad</p>
               </div>
             </div>
           </div>
         </div>
         {% endfor %}
+      {% else %}
+        <div class="container">
+          <div class="col-lg-12">
+            <h4 class="text-center">Sorry! We didn't find any Classified Ads matching your query</h4>
+          </div>
+        </div>
+      {% endif %}
       
     </div>
   </div>

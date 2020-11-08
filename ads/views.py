@@ -8,6 +8,9 @@ from django.contrib.auth.models import User
 
 from django.contrib.auth.decorators import login_required
 
+from django.conf import settings
+from django.core.mail import send_mail
+
 # importing messages
 from django.contrib import messages
 
@@ -18,62 +21,83 @@ from ads.models import Author
 @login_required(login_url='login')
 def post_ads(request):
     if request.method == 'POST':
-
-        length = request.POST.get('length')
-        
+        # Get ad title
         title = request.POST.get('title')
 
+        # Get ad description
         description = request.POST.get('description')
 
+        # Get ad category
         category = request.POST.get('category')
-        
+        # Check if the category exists
         category_check = Category.objects.filter(category_name=category).exists()
-        
-        
         if category_check:
-            c = Category.objects.get(category_name=category)
+            c = Category.objects.get(category_name=category) # Get the category if exists
         else:
-            c = Category.objects.create(category_name=category)
+            c = Category.objects.create(category_name=category) # Create the category
         
-    
-
+        # Get ad price
         price = request.POST.get('price')
+        
+        # Get ad condition
         condition = request.POST.get('condition')
-
+        
+        # Get user's living state
         state = request.POST.get('state')
-        
+        # Check if the state exists
         state_check = State.objects.filter(state_name=state).exists()
-        
-        
         if state_check:
-            s = State.objects.get(state_name=state)
+            s = State.objects.get(state_name=state) # Get the state if exists
         else:
-            s = State.objects.create(state_name=state)
+            s = State.objects.create(state_name=state) # Create the state
 
+        # Get user's living city
         city = request.POST.get('city')
-
+        # Check if the city exists
         city_check = City.objects.filter(city_name=city).exists()
-        
-        
         if city_check:
-            ci = City.objects.get(city_name=city)
+            ci = City.objects.get(city_name=city) # Get the city if exists
         else:
-            ci = City.objects.create(city_name=city)
+            ci = City.objects.create(city_name=city) # Create the city
 
+        # Get ad brand
         brand = request.POST.get('brand')
-        
+
+        # Get user's phone
         phone = request.POST.get('phone')
+
+        # Get ad video
         video = request.POST.get('video')
 
+        # Get image files length
+        length = request.POST.get('length')
+
+        # Create the ad
         ads = Ads.objects.create(author=request.user.author, title=title, description=description, price=price, category=c, condition=condition, state=s, city=ci, brand=brand, phone=phone, video=video)
 
-        print(f"ADS: {ads}")
-
+        # Attach the images with the associated ad
         for file_num in range(0, int(length)):
             AdsImages.objects.create(
                 ads=ads,
                 image=request.FILES.get(f'images{file_num}')
             )
+        
+        # Send email notificaton to Admin
+        mail_subject = "New Ads submitted"
+        sender_email = request.user.email
+        message = f"Dear Admin, you received a new ads request from {sender_email}"
+        print(message)
+        to_email = settings.EMAIL_HOST_USER
+        to_list = [to_email]
+        from_email = settings.EMAIL_HOST_USER
+        
+        send_mail(
+            mail_subject,
+            message,
+            from_email,
+            to_list,
+            fail_silently=False,
+        )
         
     return render(request, 'ads/post-ads.html')
 
@@ -155,7 +179,12 @@ def ads_search(request):
     state = request.GET.get('state_name')
     category = request.GET.get('category_name')
 
-    ads_search_result = Ads.objects.filter(state__state_name=state).filter(category__category_name=category)
+    if state:
+        ads_search_result = Ads.objects.filter(state__state_name=state)
+    elif category:
+        ads_search_result = Ads.objects.filter(category__category_name=category)
+    else:
+        ads_search_result = Ads.objects.filter(state__state_name=state).filter(category__category_name=category)
     
     context = {
         'ads_search_result':ads_search_result
