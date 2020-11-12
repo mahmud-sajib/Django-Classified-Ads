@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-# from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-# from django.db.models import Count, Q
+from django.contrib.auth.decorators import login_required
 
 # importing messages
 from django.contrib import messages
@@ -15,6 +14,9 @@ from authentication.forms import UserRegistrationForm, UserUpdateForm, ProfileUp
 # Model Forms.
 
 # Create your views here.
+
+# Profile Dashboard view
+@login_required(login_url='login')
 def profile_dashboard(request):
     ads_posted = request.user.author.ads_set.all()
     total_ads = request.user.author.ads_set.all().count()
@@ -27,6 +29,8 @@ def profile_dashboard(request):
     }
     return render(request, 'profiles/account-dashboard.html', context)
 
+# Profile Settings view
+@login_required(login_url='login')
 def profile_settings(request):
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
@@ -46,12 +50,18 @@ def profile_settings(request):
     }
     return render(request, 'profiles/account-setting.html', context)
 
+# Profile Ads view
+@login_required(login_url='login')
 def profile_ads(request):
     return render(request, 'profiles/all-ads.html')
 
+# Profile Favorite Ads view
+@login_required(login_url='login')
 def profile_favorite_ads(request):
     return render(request, 'profiles/favourite-ads.html')
 
+# Profile Delete view
+@login_required(login_url='login')
 def profile_close(request):
     return render(request, 'profiles/account-close.html')
 
