@@ -158,5 +158,5 @@ Live Project url: [huntingads.herokuapp.com](http://huntingads.herokuapp.com/)
 
 ## Feedback
 
-Feel free to send me feedback on [Twitter](https://twitter.com/MahmudSajib18) or [file an issue](https://github.com/mahmud-sajib/Django-Forum/issues/new). If you wish to contribute, please feel free to do so!
+Feel free to send me feedback on [Twitter](https://twitter.com/MahmudSajib18) or [file an issue](https://github.com/mahmud-sajib/Django-Classified-Ads/issues/new). If you wish to contribute, please feel free to do so!
 
