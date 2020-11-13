@@ -6,11 +6,13 @@ from django.dispatch import receiver
 # Create profile signal
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
-    if created:
-        Author.objects.create(user=instance)
+    if not instance.is_superuser:
+        if created:
+            Author.objects.create(user=instance)
 
 # Save profile signal
 @receiver(post_save, sender=User)
 def save_profile(sender, instance, **kwargs):
-    instance.author.save()
+    if not instance.is_superuser:
+        instance.author.save()
         

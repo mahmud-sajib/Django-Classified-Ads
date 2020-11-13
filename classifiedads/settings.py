@@ -85,15 +85,25 @@ WSGI_APPLICATION = 'classifiedads.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+"""PostgreSQL DB"""
+# DATABASES = {
+#     'default': {
+#         'NAME': 'ClassifiedAdsDB',
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'USER': 'postgres',
+#         'PASSWORD': 'admin123',
+#         'HOST': 'localhost',
+#     }
+# }
+
+"""SQLite DB"""
 DATABASES = {
     'default': {
-        'NAME': 'ClassifiedAdsDB',
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'USER': 'postgres',
-        'PASSWORD': 'admin123',
-        'HOST': 'localhost',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 
 
 # Password validation
@@ -171,6 +181,6 @@ django_heroku.settings(locals())
 # MAILER_EMAIL_BACKEND = EMAIL_BACKEND
 EMAIL_USE_TLS = True  
 EMAIL_HOST = 'smtp.gmail.com'  
-EMAIL_HOST_USER = 'sajibforest@gmail.com'  
-EMAIL_HOST_PASSWORD = 'kbaxfuwsopktgwhu'
+EMAIL_HOST_USER = 'MAIL@GMAIL.COM'  
+EMAIL_HOST_PASSWORD = 'APP_PASSWORD'
 EMAIL_PORT = 587
