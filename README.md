@@ -102,12 +102,6 @@ Live Project url: [huntingads.herokuapp.com](http://huntingads.herokuapp.com/)
   <img src = "https://i.imgur.com/Ck1JFpY.png" width=700>
 </p>
 
-### Filter/Search Result Page
-
-<p>
-  <img src = "https://i.imgur.com/dKdR86y.png" width=700>
-</p>
-
 ### Signup Page
 
 <p>
