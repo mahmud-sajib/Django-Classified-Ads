@@ -1,9 +1,8 @@
 <h1 align="center"> Classified Ads </h1> <br>
---------------------------------
+
 <h4 align="center">
-  Disclaimer: The client has given full consent to publish an open-source version of this project.
+  <span style="color: red"> Disclaimer: The client has given full consent to publish an open-source version of this project. </span>
 </h4>
---------------------------------
 
 <h3 align="center">
   A Buy/Sell Marketplace where Seller can post their product's ad and Buyer can purchase the product. Built with Python/Django.
