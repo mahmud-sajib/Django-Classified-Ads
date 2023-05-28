@@ -49,10 +49,6 @@ A few of the things you can do with Classified Ads:
 
 ## Project Demo
 
-### Live Demo
-
-Live Project url: [huntingads.herokuapp.com](http://huntingads.herokuapp.com/)
-
 ### Home Page
 
 <p>
